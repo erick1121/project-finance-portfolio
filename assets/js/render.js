@@ -40,7 +40,7 @@ function getProjects() {
 function renderProjectCard(project) {
   const statusBadge =
     project.status === "example"
-      ? `<span class="sector-tag" style="background:transparent;border:1px solid var(--line-strong);color:var(--ink-faint);">Sample data</span>`
+      ? `<span class="sector-tag" style="color:var(--ink-secondary);">· Sample data</span>`
       : "";
 
   const metrics = project.metrics

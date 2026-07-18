@@ -1,13 +1,14 @@
 /**
  * Charts — SVG puro generado en JS, sin librerías externas.
- * Estética "blueprint": trazo fino, un único acento, etiquetas en mono.
+ * Paleta "Alta Finanza": verde bosque para series de datos (DSCR, flujos),
+ * gris antracita para cifras negativas (sin rojo — convención de paréntesis).
  */
 
-const CHART_ACCENT = "#0f2444";
-const CHART_LINE = "#e4e1da";
-const CHART_LINE_STRONG = "#c9c5ba";
-const CHART_INK_FAINT = "#7d8590";
-const CHART_NEGATIVE = "#8c2f2f";
+const CHART_ACCENT = "#1b4332";
+const CHART_LINE = "#e2e8f0";
+const CHART_LINE_STRONG = "#cbd5e1";
+const CHART_INK_FAINT = "#475569";
+const CHART_NEGATIVE = "#1e293b";
 const CHART_FONT_MONO = "'IBM Plex Mono', ui-monospace, monospace";
 
 function svgEl(tag, attrs) {
@@ -50,7 +51,7 @@ function renderBarChart(container, { rows }) {
     const usableWidth = chartRight - chartLeft;
     const rowY = rowIdx * rowHeight + 12;
 
-    svg.appendChild(svgText(4, rowY + 8, row.label, { fill: "#12151a", size: 12 }));
+    svg.appendChild(svgText(4, rowY + 8, row.label, { fill: "#1e293b", size: 12 }));
 
     values.forEach((val, i) => {
       const barY = rowY + 18 + i * barStep;
@@ -67,7 +68,7 @@ function renderBarChart(container, { rows }) {
         val >= 0 ? x + w + 6 : x - 6,
         barY + barH - 4,
         `${val}${row.unit}`,
-        { fill: "#12151a", size: 11, anchor: val >= 0 ? "start" : "end" }
+        { fill: "#1e293b", size: 11, anchor: val >= 0 ? "start" : "end" }
       ));
     });
   });
@@ -105,19 +106,19 @@ function renderTornadoChart(container, sensitivities) {
     const lowW = (Math.abs(s.low) / maxSwing) * usableHalf;
     const highW = (Math.abs(s.high) / maxSwing) * usableHalf;
 
-    svg.appendChild(svgText(midX, y - 8, s.label, { anchor: "middle", fill: "#12151a", size: 11 }));
+    svg.appendChild(svgText(midX, y - 8, s.label, { anchor: "middle", fill: "#1e293b", size: 11 }));
 
     if (s.low !== 0) {
       svg.appendChild(svgEl("rect", {
         x: midX - lowW, y, width: lowW, height: barH, fill: CHART_NEGATIVE, opacity: 0.85
       }));
-      svg.appendChild(svgText(midX - lowW - 6, y + barH - 3, `${s.low}pp`, { anchor: "end", size: 10, fill: "#12151a" }));
+      svg.appendChild(svgText(midX - lowW - 6, y + barH - 3, `${s.low}pp`, { anchor: "end", size: 10, fill: "#1e293b" }));
     }
     if (s.high !== 0) {
       svg.appendChild(svgEl("rect", {
         x: midX, y, width: highW, height: barH, fill: CHART_ACCENT, opacity: 0.85
       }));
-      svg.appendChild(svgText(midX + highW + 6, y + barH - 3, `+${s.high}pp`, { anchor: "start", size: 10, fill: "#12151a" }));
+      svg.appendChild(svgText(midX + highW + 6, y + barH - 3, `+${s.high}pp`, { anchor: "start", size: 10, fill: "#1e293b" }));
     }
   });
 

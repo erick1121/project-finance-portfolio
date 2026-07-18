@@ -1,24 +1,27 @@
 /* ============================================================================
    PROJECT FINANCE PORTFOLIO — Design System
-   Minimalista blanco/negro · acento azul "blueprint" · datos en monoespaciada
+   "Elegant Authority" — alta finanza institucional (banca / PE / infra funds)
+   Regla 60-30-10: 60% fondos claros, 30% estructura oscura/texto, 10% dorado.
    ============================================================================ */
 
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap");
 
 :root {
-  /* Color — institutional: deep navy, charcoal, white/cream. No vibrant or neon accents. */
-  --bg: #ffffff;
-  --bg-subtle: #f6f5f1;
-  --ink: #1c2128;
-  --ink-secondary: #4b5563;
-  --ink-faint: #7d8590;
-  --line: #e4e1da;
-  --line-strong: #c9c5ba;
-  --accent: #0f2444;
-  --accent-soft: #e8ecf3;
-  --negative: #8c2f2f;
+  /* Color */
+  --bg: #f9f9f7;              /* 60% — off-white/marfil, fondo principal */
+  --bg-dark: #0a1128;         /* Midnight navy — exclusivo Hero + Footer */
+  --bg-subtle: #f3f2ed;       /* Tinte casi imperceptible, solo hover de filas */
+  --ink: #1e293b;             /* 30% — gris antracita, texto y datos (nunca #000) */
+  --ink-secondary: #475569;   /* 30% — gris plomo, subtítulos y etiquetas */
+  --ink-inverse: #f1f5f9;     /* Blanco tiza — texto sobre fondos oscuros */
+  --line: #e2e8f0;            /* Gris pizarra claro — bordes y divisores */
+  --line-strong: #cbd5e1;     /* Mismo gris, un tono más marcado (bordes de componentes) */
+  --line-on-dark: rgba(241, 245, 249, 0.14);
+  --accent: #b89768;          /* 10% — dorado champagne: CTAs, hover, datos clave */
+  --accent-soft: #f2ece2;
+  --accent-secondary: #1b4332;/* Verde bosque — exclusivo gráficos financieros (DSCR, flujos) */
 
-  /* Tipografía — serie clásica financiera: serif institucional + sans limpia */
+  /* Tipografía — serif clásica de prestigio + sans geométrica muy legible */
   --font-display: "Merriweather", Georgia, serif;
   --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
@@ -150,7 +153,7 @@ section { position: relative; }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(255, 255, 255, 0.82);
+  background: rgba(249, 249, 247, 0.86);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
@@ -175,7 +178,7 @@ section { position: relative; }
 .site-nav .brand .brand-sub {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  color: var(--ink-faint);
+  color: var(--ink-secondary);
   font-weight: 400;
 }
 
@@ -272,10 +275,16 @@ section { position: relative; }
 .btn:active { transform: scale(0.98); }
 
 .btn-primary { background: var(--ink); color: var(--bg); }
-.btn-primary:hover { background: var(--accent); }
+.btn-primary:hover { background: var(--accent); color: var(--bg-dark); }
 
 .btn-secondary { background: transparent; border-color: var(--line-strong); color: var(--ink); }
 .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+.hero .btn-primary, .case-hero .btn-primary { background: var(--accent); color: var(--bg-dark); }
+.hero .btn-primary:hover, .case-hero .btn-primary:hover { background: var(--ink-inverse); }
+
+.hero .btn-secondary, .case-hero .btn-secondary { border-color: var(--line-on-dark); color: var(--ink-inverse); }
+.hero .btn-secondary:hover, .case-hero .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
 
 .btn[disabled] { opacity: 0.4; cursor: not-allowed; pointer-events: none; }
 
@@ -315,9 +324,11 @@ section { position: relative; }
 .blueprint-marks::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
 .blueprint-marks::after { bottom: -1px; right: -1px; border-left: none; border-top: none; }
 
-/* ---- Hero (home) ---- */
+/* ---- Hero (home) — fondo premium navy, exclusivo de Hero + Footer ---- */
 
 .hero {
+  background: var(--bg-dark);
+  color: var(--ink-inverse);
   padding: var(--space-32) 0 var(--space-24);
   position: relative;
   overflow: hidden;
@@ -327,22 +338,22 @@ section { position: relative; }
   position: absolute;
   inset: 0;
   background-image:
-    repeating-linear-gradient(to right, var(--line) 0 1px, transparent 1px 48px),
-    repeating-linear-gradient(to bottom, var(--line) 0 1px, transparent 1px 48px);
+    repeating-linear-gradient(to right, var(--line-on-dark) 0 1px, transparent 1px 48px),
+    repeating-linear-gradient(to bottom, var(--line-on-dark) 0 1px, transparent 1px 48px);
   mask-image: linear-gradient(to bottom, black, transparent);
   -webkit-mask-image: linear-gradient(to bottom, black, transparent);
-  opacity: 0.7;
   z-index: 0;
 }
 
 .hero .container { position: relative; z-index: 1; }
 
-.hero h1 { max-width: 16ch; margin-top: var(--space-4); }
+.hero h1 { max-width: 16ch; margin-top: var(--space-4); color: var(--ink-inverse); }
 
 .hero-sub {
   margin-top: var(--space-6);
   font-size: var(--text-md);
   max-width: 52ch;
+  color: rgba(241, 245, 249, 0.72);
 }
 
 .hero-ctas {
@@ -354,27 +365,28 @@ section { position: relative; }
 .stat-bar {
   display: flex;
   margin-top: var(--space-24);
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--line-on-dark);
 }
 
 .stat {
   flex: 1;
   padding: var(--space-6) var(--space-6) 0 0;
-  border-left: 1px solid var(--line);
+  border-left: 1px solid var(--line-on-dark);
   padding-left: var(--space-6);
 }
 .stat:first-child { border-left: none; padding-left: 0; }
 
 .stat-value {
-  font-size: var(--text-lg);
-  color: var(--ink);
-  font-weight: 500;
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--ink-inverse);
 }
 
 .stat-label {
-  margin-top: var(--space-1);
+  margin-top: var(--space-2);
   font-size: var(--text-xs);
-  color: var(--ink-faint);
+  color: rgba(241, 245, 249, 0.58);
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
@@ -392,36 +404,35 @@ section { position: relative; }
 
 .section-heading h2 { margin-top: var(--space-3); }
 
-/* ---- Filter pills ---- */
+/* ---- Filters — texto simple, subrayado fino en dorado; nada de pastillas ---- */
 
 .filter-pills {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-2);
+  gap: var(--space-8);
   margin-top: var(--space-8);
 }
 
 .pill {
-  padding: var(--space-2) var(--space-4);
-  border-radius: var(--radius-pill);
-  border: 1px solid var(--line-strong);
+  padding: 0 0 var(--space-2);
+  border: none;
+  border-bottom: 1px solid transparent;
   background: transparent;
+  border-radius: 0;
   font-family: var(--font-body);
   font-size: var(--text-sm);
   font-weight: 500;
   color: var(--ink-secondary);
   cursor: pointer;
-  transition: background-color var(--duration-fast) var(--ease-out),
-              border-color var(--duration-fast) var(--ease-out),
-              color var(--duration-fast) var(--ease-out);
+  transition: color var(--duration-fast) var(--ease-out),
+              border-color var(--duration-fast) var(--ease-out);
 }
 
-.pill:hover { border-color: var(--accent); color: var(--accent); }
+.pill:hover { color: var(--ink); border-bottom-color: var(--line-strong); }
 
 .pill[aria-pressed="true"] {
-  background: var(--ink);
-  border-color: var(--ink);
-  color: var(--bg);
+  color: var(--ink);
+  border-bottom-color: var(--accent);
 }
 
 /* ---- Case study grid ---- */
@@ -446,10 +457,11 @@ section { position: relative; }
   padding: var(--space-8);
   display: flex;
   flex-direction: column;
-  transition: background-color var(--duration-base) var(--ease-out);
+  transition: box-shadow var(--duration-base) var(--ease-out);
 }
 
-.case-card:hover { background: var(--bg-subtle); }
+/* Sombra casi imperceptible — nada de bordes gruesos ni levitación */
+.case-card:hover { box-shadow: 0 8px 28px rgba(10, 17, 40, 0.06); position: relative; z-index: 1; }
 
 .case-card .case-icon {
   width: 32px;
@@ -463,12 +475,12 @@ section { position: relative; }
   align-self: flex-start;
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--accent);
-  background: var(--accent-soft);
-  padding: var(--space-1) var(--space-3);
-  border-radius: var(--radius-sm);
+  color: var(--ink-secondary);
+  background: none;
+  padding: 0;
+  border-radius: 0;
   margin-bottom: var(--space-4);
 }
 
@@ -477,7 +489,7 @@ section { position: relative; }
 .case-card .case-meta {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  color: var(--ink-faint);
+  color: var(--ink-secondary);
   margin-bottom: var(--space-6);
 }
 
@@ -492,13 +504,13 @@ section { position: relative; }
 
 .case-metrics .metric-label {
   font-size: var(--text-xs);
-  color: var(--ink-faint);
+  color: var(--ink-secondary);
   text-transform: uppercase;
   letter-spacing: 0.04em;
   margin-bottom: var(--space-1);
 }
 
-.case-metrics .metric-value { font-size: var(--text-md); color: var(--ink); }
+.case-metrics .metric-value { font-size: var(--text-md); color: var(--accent); }
 
 .case-card p { font-size: var(--text-sm); margin-bottom: var(--space-6); flex: 1; }
 
@@ -508,7 +520,7 @@ section { position: relative; }
   grid-column: 1 / -1;
   padding: var(--space-16);
   text-align: center;
-  color: var(--ink-faint);
+  color: var(--ink-secondary);
   font-size: var(--text-sm);
   background: var(--bg);
 }
@@ -516,7 +528,8 @@ section { position: relative; }
 /* ---- About ---- */
 
 .about {
-  background: var(--bg-subtle);
+  background: var(--bg);
+  border-top: 1px solid var(--line);
   padding: var(--space-24) 0;
 }
 
@@ -545,8 +558,45 @@ section { position: relative; }
 
 .fact-list li:first-child { border-top: 1px solid var(--line); }
 
-.fact-list .fact-label { color: var(--ink-faint); }
+.fact-list .fact-label { color: var(--ink-secondary); }
 .fact-list .fact-value { color: var(--ink); text-align: right; }
+
+/* ---- Social proof band (institutional authority) ---- */
+
+.social-proof {
+  margin-top: var(--space-16);
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--line);
+}
+
+.social-proof-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-secondary);
+  margin-bottom: var(--space-6);
+}
+
+.social-proof-marks {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-8) var(--space-16);
+}
+
+.social-proof-marks span {
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--ink-secondary);
+  filter: grayscale(1);
+  opacity: 0.8;
+  transition: opacity var(--duration-base) var(--ease-out);
+}
+
+.social-proof-marks span:hover { opacity: 1; }
 
 /* ---- Contact ---- */
 
@@ -567,7 +617,7 @@ section { position: relative; }
 /* ---- Footer ---- */
 
 .site-footer {
-  border-top: 1px solid var(--line);
+  background: var(--bg-dark);
   padding: var(--space-8) 0;
 }
 
@@ -576,15 +626,17 @@ section { position: relative; }
   justify-content: space-between;
   align-items: center;
   font-size: var(--text-sm);
-  color: var(--ink-faint);
+  color: rgba(241, 245, 249, 0.6);
 }
+
+.site-footer .link-underline { border-bottom-color: var(--line-on-dark); }
 
 /* ---- Reveal on scroll ---- */
 
 .reveal {
   opacity: 0;
-  transform: translateY(14px);
-  transition: opacity 600ms var(--ease-out), transform 600ms var(--ease-out);
+  transform: translateY(8px);
+  transition: opacity 700ms var(--ease-out), transform 700ms var(--ease-out);
 }
 
 .reveal.is-visible { opacity: 1; transform: translateY(0); }
@@ -598,11 +650,12 @@ section { position: relative; }
    ============================================================================ */
 
 .case-hero {
+  background: var(--bg-dark);
+  color: var(--ink-inverse);
   padding: var(--space-16) 0 var(--space-12);
-  border-bottom: 1px solid var(--line);
 }
 
-.case-hero h1 { margin-top: var(--space-3); max-width: 22ch; }
+.case-hero h1 { margin-top: var(--space-3); max-width: 22ch; color: var(--ink-inverse); }
 
 .case-hero-metrics {
   display: flex;
@@ -613,13 +666,15 @@ section { position: relative; }
 
 .case-hero-metrics .metric-label {
   font-size: var(--text-xs);
-  color: var(--ink-faint);
+  color: rgba(241, 245, 249, 0.58);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: var(--space-1);
 }
 
 .case-hero-metrics .metric-value {
+  font-family: var(--font-display);
+  font-weight: 700;
   font-size: var(--text-xl);
   color: var(--accent);
 }
@@ -664,7 +719,7 @@ section { position: relative; }
   margin-left: -1px;
   border-left: 1px solid transparent;
   font-size: var(--text-sm);
-  color: var(--ink-faint);
+  color: var(--ink-secondary);
   transition: color var(--duration-fast) var(--ease-out), border-color var(--duration-fast) var(--ease-out);
 }
 
@@ -701,7 +756,7 @@ section { position: relative; }
 .case-section .section-number {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  color: var(--ink-faint);
+  color: var(--ink-secondary);
   letter-spacing: 0.06em;
 }
 
@@ -736,7 +791,7 @@ caption {
   text-align: left;
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  color: var(--ink-faint);
+  color: var(--ink-secondary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: var(--space-2);
@@ -745,7 +800,7 @@ caption {
 th, td { text-align: left; padding: var(--space-3) var(--space-4); border-bottom: 1px solid var(--line); }
 
 th {
-  color: var(--ink-faint);
+  color: var(--ink-secondary);
   font-weight: 500;
   font-family: var(--font-mono);
   letter-spacing: 0.03em;
@@ -755,11 +810,13 @@ th {
 
 td { color: var(--ink); }
 td.numeric, th.numeric { text-align: right; }
-td.negative { color: var(--negative); }
+/* Sin rojo en la paleta: las cifras negativas se distinguen por el paréntesis
+   (convención de memorando financiero), no por color de alarma. */
+td.negative { color: var(--ink); }
 
 tbody tr:hover { background: var(--bg-subtle); }
 
-.facts-table td:first-child { color: var(--ink-faint); width: 38%; }
+.facts-table td:first-child { color: var(--ink-secondary); width: 38%; }
 
 .assumption-group { margin-top: var(--space-12); }
 .assumption-group:first-child { margin-top: var(--space-6); }
@@ -854,7 +911,7 @@ tbody tr:hover { background: var(--bg-subtle); }
 
 .download-card .file-meta {
   font-size: var(--text-xs);
-  color: var(--ink-faint);
+  color: var(--ink-secondary);
   margin-top: var(--space-1);
 }
 
@@ -881,7 +938,7 @@ tbody tr:hover { background: var(--bg-subtle); }
 .sources-list .source-org {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  color: var(--ink-faint);
+  color: var(--ink-secondary);
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
