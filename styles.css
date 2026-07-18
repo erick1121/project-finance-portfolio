@@ -434,6 +434,8 @@ section { position: relative; }
   margin-top: var(--space-12);
 }
 
+.case-grid > * { min-width: 0; }
+
 @media (max-width: 900px) {
   .case-grid { grid-template-columns: 1fr; }
 }
@@ -523,6 +525,8 @@ section { position: relative; }
   gap: var(--space-24);
   margin-top: var(--space-12);
 }
+
+.about-grid > * { min-width: 0; }
 
 @media (max-width: 800px) {
   .about-grid { grid-template-columns: 1fr; gap: var(--space-12); }
@@ -627,6 +631,14 @@ section { position: relative; }
   gap: var(--space-16);
   padding: var(--space-16) 0 var(--space-24);
   align-items: start;
+}
+
+.case-body > * {
+  /* Prevents the classic CSS Grid "blowout": without this, grid items
+     never shrink below their content's intrinsic min-width (a wide
+     table, chart or unwrapped nav row), forcing the whole column wider
+     than its track and silently clipping content on narrow viewports. */
+  min-width: 0;
 }
 
 @media (max-width: 900px) {
@@ -761,6 +773,8 @@ tbody tr:hover { background: var(--bg-subtle); }
   margin-top: var(--space-8);
 }
 
+.callout-row > * { min-width: 0; }
+
 @media (max-width: 800px) {
   .callout-row { grid-template-columns: 1fr; }
 }
@@ -797,6 +811,8 @@ tbody tr:hover { background: var(--bg-subtle); }
   gap: var(--space-16);
   margin-top: var(--space-8);
 }
+
+.insight-columns > * { min-width: 0; }
 
 @media (max-width: 800px) {
   .insight-columns { grid-template-columns: 1fr; gap: var(--space-12); }
@@ -851,6 +867,10 @@ tbody tr:hover { background: var(--bg-subtle); }
   display: grid;
   grid-template-columns: 140px 1fr;
   gap: var(--space-6);
+}
+
+.sources-list li > * {
+  min-width: 0;
 }
 
 @media (max-width: 700px) {
