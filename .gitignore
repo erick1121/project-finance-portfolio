@@ -1,0 +1,6 @@
+# Excel lock/temp files (created while a workbook is open)
+~$*.xlsx
+.~lock.*
+
+# macOS
+.DS_Store

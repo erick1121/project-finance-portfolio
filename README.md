@@ -15,11 +15,20 @@ script.js                    → filtro de sectores + reveal on scroll + scroll-
 data/
   _template.js                → plantilla de referencia con TODOS los campos (no se carga en la web)
   energia-renovable/
-    aurora-offshore-wind.js   → caso de ejemplo
+    aurora-offshore-wind.js   → caso de ejemplo (GENERADO desde excel/, no lo edites a mano)
   infraestructura-core/
-    meridian-toll-road.js     → caso de ejemplo
+    meridian-toll-road.js     → caso de ejemplo (GENERADO desde excel/)
   infraestructura-digital/
-    nexus-data-center.js      → caso de ejemplo
+    nexus-data-center.js      → caso de ejemplo (GENERADO desde excel/)
+
+excel/
+  _template.xlsx               → plantilla Excel con las mismas pestañas que un caso real
+  energia-renovable/aurora-offshore-wind.xlsx
+  infraestructura-core/meridian-toll-road.xlsx
+  infraestructura-digital/nexus-data-center.xlsx
+
+tools/
+  build_data.py                → convierte excel/<sector>/*.xlsx a data/<sector>/*.js
 
 assets/js/
   charts.js                   → gráficos SVG (barras, tornado, línea de DSCR) — sin librerías externas
@@ -35,20 +44,66 @@ cargan esos ficheros vía `<script>` y `assets/js/render.js` construye el HTML
 sensibilidades y perfil de DSCR) directamente desde esos datos. No hay que
 tocar HTML/CSS nunca para añadir o editar un caso.
 
-## Cómo añadir un caso de estudio nuevo
+**Los `data/*.js` de los 3 casos de ejemplo ahora se generan desde Excel** —
+ver la sección siguiente. Puedes seguir editando un `data/*.js` a mano si
+prefieres (sigue siendo JS plano), pero si lo haces para un caso que también
+tiene su `.xlsx` en `excel/`, la próxima vez que ejecutes `build_data.py` tu
+edición manual se sobrescribirá con lo que haya en el Excel.
 
-1. Copia `data/_template.js` (tiene comentarios en cada campo) dentro de la
-   carpeta de su sector — o crea una carpeta de sector nueva si hace falta:
-   - `data/energia-renovable/`
-   - `data/infraestructura-core/`
-   - `data/infraestructura-digital/`
-2. Renómbralo con un slug único, ej. `mi-proyecto.js`, y rellena los campos.
-3. Añade **una línea** `<script src="data/.../mi-proyecto.js"></script>` en
-   **ambos** `index.html` y `case-study.html`, junto a los demás ficheros de
-   datos (antes de `assets/js/charts.js`).
-4. Guarda y recarga el navegador — la tarjeta aparece sola en el grid del
-   portfolio y `case-study.html?id=mi-proyecto` renderiza el caso completo
-   con sus gráficos.
+## Editar los casos de estudio desde Excel (recomendado)
+
+En vez de tocar JSON/JS a mano, puedes mantener cada caso de estudio en un
+Excel con una pestaña por tipo de dato (Info, Metrics, Facts, ExecutiveSummary,
+ScenarioTable, Callouts, Sensitivities, DebtProfile, InsightsPE,
+InsightsLenders, Assumptions, Sources) y regenerar el `.js` con un comando.
+
+**Configuración única** (una sola vez en tu Mac):
+```
+python3 -m pip install --user openpyxl
+```
+
+**Flujo de trabajo normal:**
+1. Abre el `.xlsx` de un caso en `excel/<sector>/` (Excel, Numbers o Google
+   Sheets) y edita los valores que quieras — no cambies los nombres de las
+   pestañas ni las columnas de cabecera.
+2. Guarda el archivo.
+3. Desde la carpeta del proyecto, ejecuta:
+   ```
+   python3 tools/build_data.py
+   ```
+   Esto regenera **todos** los `data/<sector>/*.js` a partir de todos los
+   `.xlsx` que encuentre en `excel/`.
+4. Recarga el navegador para comprobar el resultado, y si todo está bien:
+   ```
+   git add -A
+   git commit -m "Update case study data"
+   git push
+   ```
+
+## Cómo añadir un caso de estudio nuevo (con Excel)
+
+1. Copia `excel/_template.xlsx` dentro de la carpeta de su sector con un
+   nombre nuevo, ej. `excel/energia-renovable/mi-proyecto.xlsx` — o crea una
+   carpeta de sector nueva si hace falta.
+2. Rellena las pestañas (mira `excel/energia-renovable/aurora-offshore-wind.xlsx`
+   como referencia de un caso ya completo).
+3. Ejecuta `python3 tools/build_data.py` — esto crea automáticamente
+   `data/energia-renovable/mi-proyecto.js`.
+4. Añade una tarjeta en `index.html` (copia un `<article class="case-card"
+   data-sector="...">` existente) apuntando a
+   `case-study.html?id=mi-proyecto`, y añade **una línea**
+   `<script src="data/.../mi-proyecto.js"></script>` en **ambos**
+   `index.html` y `case-study.html`, junto a los demás ficheros de datos
+   (antes de `assets/js/charts.js`).
+5. Recarga el navegador — la tarjeta aparece en el grid del portfolio y
+   `case-study.html?id=mi-proyecto` renderiza el caso completo con sus
+   gráficos.
+
+### Cómo añadir un caso de estudio nuevo (a mano, sin Excel)
+
+Si prefieres no usar Excel, sigue el mismo proceso pero copiando
+`data/_template.js` (tiene comentarios en cada campo) en vez del `.xlsx`, y
+sáltate el paso de `build_data.py`.
 
 ## Qué preparar por cada caso de estudio futuro
 
