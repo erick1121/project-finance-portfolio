@@ -41,7 +41,7 @@ function renderBarChart(container, { rows }) {
   const chartRight = width - 60;
 
   const svg = svgEl("svg", { viewBox: `0 0 ${width} ${height}`, width: "100%", height: "auto", role: "img" });
-  svg.setAttribute("aria-label", "Gráfico de resultados por escenario");
+  svg.setAttribute("aria-label", "Scenario results chart");
 
   rows.forEach((row, rowIdx) => {
     const values = ["p50", "p75", "p90", "p99"].map((k) => row[k]);
@@ -92,7 +92,7 @@ function renderTornadoChart(container, sensitivities) {
   const usableHalf = width / 2 - 16;
 
   const svg = svgEl("svg", { viewBox: `0 0 ${width} ${height}`, width: "100%", height: "auto", role: "img" });
-  svg.setAttribute("aria-label", "Gráfico tornado de sensibilidades sobre el Equity IRR");
+  svg.setAttribute("aria-label", "Tornado chart of Equity IRR sensitivities");
 
   svg.appendChild(svgEl("line", {
     x1: midX, y1: 14, x2: midX, y2: height - 14, stroke: CHART_LINE_STRONG, "stroke-width": 1
@@ -148,7 +148,7 @@ function renderDscrLineChart(container, { points, covenantMin }) {
   const yScale = (y) => height - padBottom - ((y - minY) / (maxY - minY)) * (height - padTop - padBottom);
 
   const svg = svgEl("svg", { viewBox: `0 0 ${width} ${height}`, width: "100%", height: "auto", role: "img" });
-  svg.setAttribute("aria-label", "Gráfico de perfil de DSCR a lo largo de la vida de la deuda");
+  svg.setAttribute("aria-label", "DSCR profile chart across the debt tenor");
 
   // gridlines horizontales
   [minY, (minY + maxY) / 2, maxY].forEach((gy) => {

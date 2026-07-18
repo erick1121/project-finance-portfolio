@@ -3,13 +3,13 @@ window.CASE_STUDIES = window.CASE_STUDIES || [];
 window.CASE_STUDIES.push({
   id: "aurora-offshore-wind",
   sector: "renewable",
-  sectorLabel: "Energía Renovable",
+  sectorLabel: "Renewable Energy",
   status: "example",
 
   name: "Aurora Offshore Wind",
-  location: "Mar del Norte, costa de Cantabria (ejemplo ilustrativo)",
-  size: "1,200 MW · 80 turbinas × 15 MW",
-  tagline: "Project finance de un parque eólico marino de 1.2 GW bajo contrato de precio garantizado a 25 años.",
+  location: "North Sea, off the coast of Cantabria (illustrative example)",
+  size: "1,200 MW · 80 turbines × 15 MW",
+  tagline: "Project finance for a 1.2 GW offshore wind farm under a 25-year guaranteed-price contract.",
 
   metrics: [
     { label: "Equity IRR", value: "11.2%" },
@@ -18,40 +18,40 @@ window.CASE_STUDIES.push({
   ],
 
   facts: [
-    { label: "Ubicación", value: "Mar del Norte, costa de Cantabria (ejemplo ilustrativo)" },
-    { label: "Capacidad", value: "1,200 MW (80 turbinas × 15 MW)" },
-    { label: "Mecanismo de ingresos", value: "Precio garantizado (CfD), 88.5 €/MWh, precios 2026" },
-    { label: "Promotor(es)", value: "Iberia Renewables (55%) / Nordic Capital Partners (45%)" },
-    { label: "Capex total", value: "1,850 €M (contingencia 5% + IDC)" },
-    { label: "Estructura de financiación", value: "70% deuda senior / 30% equity" },
-    { label: "Periodo de operación", value: "25 años" }
+    { label: "Location", value: "North Sea, off the coast of Cantabria (illustrative example)" },
+    { label: "Capacity", value: "1,200 MW (80 turbines × 15 MW)" },
+    { label: "Revenue mechanism", value: "Guaranteed price (CfD), €88.5/MWh, 2026 prices" },
+    { label: "Sponsor(s)", value: "Iberia Renewables (55%) / Nordic Capital Partners (45%)" },
+    { label: "Total capex", value: "€1,850M (5% contingency + IDC)" },
+    { label: "Financing structure", value: "70% senior debt / 30% equity" },
+    { label: "Operating period", value: "25 years" }
   ],
 
   executiveSummary: [
-    "Aurora Offshore Wind es un caso de estudio ilustrativo de financiación de proyecto para un parque eólico marino de 1.2 GW, estructurado bajo un contrato de precio garantizado a 25 años. El modelo evalúa la solidez del retorno de equity y la capacidad de repago de la deuda senior bajo escenarios adversos de capex, generación y tipos de interés.",
-    "Bajo el caso base (P50), el proyecto genera un Equity IRR de 11.2% con un DSCR mínimo de 1.21×, sustentado por un ratio de apalancamiento del 70% y una cobertura de repago robusta durante toda la vida de la deuda."
+    "Aurora Offshore Wind is an illustrative project finance case study for a 1.2 GW offshore wind farm, structured under a 25-year guaranteed-price contract. The model assesses the strength of the equity return and the senior debt's repayment capacity under adverse scenarios for capex, generation, and interest rates.",
+    "Under the base case (P50), the project generates an Equity IRR of 11.2% with a minimum DSCR of 1.21×, supported by a 70% leverage ratio and robust repayment coverage across the life of the debt."
   ],
 
   scenarioTable: {
-    caption: "Resultados por escenario probabilístico de generación",
+    caption: "Results by probabilistic generation scenario",
     rows: [
       { label: "Equity IRR", unit: "%", p50: 11.2, p75: 7.8, p90: 3.9, p99: -2.1 },
-      { label: "DSCR Mínimo", unit: "×", p50: 1.21, p75: 1.19, p90: 1.17, p99: 1.12 }
+      { label: "Min. DSCR", unit: "×", p50: 1.21, p75: 1.19, p90: 1.17, p99: 1.12 }
     ]
   },
 
   callouts: [
-    { value: "8.1pp", text: "Swing de Equity IRR ante ±10% de desviación en capex — la variable de mayor impacto." },
-    { value: "1.12×", text: "DSCR mínimo incluso en P99, sin romper covenant en ningún percentil modelado." },
-    { value: "±0.4pp", text: "Sensibilidad a tipos de interés, gracias a la cobertura desde el cierre financiero." }
+    { value: "8.1pp", text: "Equity IRR swing from a ±10% deviation in capex — the highest-impact variable." },
+    { value: "1.12×", text: "Minimum DSCR even in P99, without breaching covenant in any modeled percentile." },
+    { value: "±0.4pp", text: "Sensitivity to interest rates, thanks to hedging in place since financial close." }
   ],
 
   sensitivities: [
-    { label: "Capex de construcción", low: -8.1, high: 2.4, note: "Mitigación: contratos EPC a precio fijo con liquidated damages y contingencia mínima del 5%." },
-    { label: "Generación (recurso eólico)", low: -4.6, high: 3.1, note: "El DSRA de 6 meses absorbe la volatilidad estacional sin eventos de default." },
-    { label: "Precio garantizado / indexación", low: -3.0, high: 3.0, note: "CfD indexado a CPI (2% p.a.) limita la exposición a precios de mercado." },
-    { label: "Opex (O&M + conexión)", low: -2.2, high: 1.5, note: "Bloqueos contractuales de largo plazo reducen la volatilidad de costes." },
-    { label: "Tipo de interés", low: -0.4, high: 0.4, note: "Swaps de tipo fijo desde el cierre financiero." }
+    { label: "Construction capex", low: -8.1, high: 2.4, note: "Mitigation: fixed-price EPC contracts with liquidated damages and a minimum 5% contingency." },
+    { label: "Generation (wind resource)", low: -4.6, high: 3.1, note: "The 6-month DSRA absorbs seasonal volatility without triggering default events." },
+    { label: "Guaranteed price / indexation", low: -3.0, high: 3.0, note: "CPI-indexed CfD (2% p.a.) limits exposure to market prices." },
+    { label: "Opex (O&M + connection)", low: -2.2, high: 1.5, note: "Long-term contractual lock-ins reduce cost volatility." },
+    { label: "Interest rate", low: -0.4, high: 0.4, note: "Fixed-rate swaps in place since financial close." }
   ],
 
   debtProfile: {
@@ -72,45 +72,45 @@ window.CASE_STUDIES.push({
   },
 
   insightsPE: [
-    { title: "El capex domina el retorno de equity", body: "Una desviación de ±10% sobre el capex base desplaza el Equity IRR en 8.1 puntos porcentuales, muy por delante de cualquier otra variable." },
-    { title: "La generación es el segundo driver", body: "El recurso eólico explica gran parte de la dispersión entre P50 y P99, aunque queda contenido por el diseño de las reservas de liquidez." },
-    { title: "Baja sensibilidad a tipos de interés", body: "La cobertura de tipo fijo desde el cierre financiero limita el riesgo de refinanciación a un rango de ±0.4pp en el IRR." }
+    { title: "Capex dominates the equity return", body: "A ±10% deviation from base capex shifts the Equity IRR by 8.1 percentage points, well ahead of any other variable." },
+    { title: "Generation is the second driver", body: "Wind resource explains much of the dispersion between P50 and P99, though it remains contained by the liquidity reserve design." },
+    { title: "Low sensitivity to interest rates", body: "Fixed-rate hedging since financial close limits refinancing risk to a range of ±0.4pp in the IRR." }
   ],
 
   insightsLenders: [
-    { title: "DSCR robusto en todos los percentiles modelados", body: "El mínimo se mantiene en 1.12× incluso en P99, sin ruptura de covenant (umbral 1.10×) en ningún escenario." },
-    { title: "Sin riesgo de 'cliff' en la amortización", body: "El perfil de repago muestra una curva suave durante los 25 años de deuda, sin picos de exposición concentrados." },
-    { title: "Punto de mayor tensión en el año 9", body: "El DSCR toca su mínimo relativo por el solapamiento de mantenimiento mayor y baja generación estacional, recuperándose con normalidad después." }
+    { title: "Robust DSCR across all modeled percentiles", body: "The minimum holds at 1.12× even in P99, with no covenant breach (1.10× threshold) in any scenario." },
+    { title: "No 'cliff' risk in the amortization profile", body: "The repayment schedule shows a smooth curve over the 25-year debt tenor, with no concentrated exposure spikes." },
+    { title: "Peak stress point in year 9", body: "DSCR hits its relative minimum from overlapping major maintenance and low seasonal generation, recovering normally afterward." }
   ],
 
   modelFile: {
     name: "aurora_offshore_wind_model.xlsx",
-    meta: "Excel workbook · Construction & Operations modules · Modelo de ejemplo",
+    meta: "Excel workbook · Construction & Operations modules · Sample model",
     href: "#"
   },
 
   assumptions: {
     revenue: [
-      { parameter: "Precio garantizado (CfD)", value: "88.5 €/MWh (precios 2026)", source: "Subasta de energía renovable, ronda ilustrativa" },
-      { parameter: "P50 Net Annual Generation", value: "4,750 GWh/año (45.2% factor de capacidad)", source: "Estudio de recurso eólico independiente (ejemplo)" }
+      { parameter: "Guaranteed price (CfD)", value: "€88.5/MWh (2026 prices)", source: "Illustrative renewable energy auction round" },
+      { parameter: "P50 net annual generation", value: "4,750 GWh/year (45.2% capacity factor)", source: "Independent wind resource study (example)" }
     ],
     capex: [
-      { parameter: "Capex total", value: "1,850 €M", source: "Estimación EPC + benchmark de mercado" },
-      { parameter: "Contingencia", value: "5%", source: "Benchmark sectorial offshore wind" }
+      { parameter: "Total capex", value: "€1,850M", source: "EPC estimate + market benchmark" },
+      { parameter: "Contingency", value: "5%", source: "Offshore wind sector benchmark" }
     ],
     opex: [
-      { parameter: "O&M anual", value: "38 k€/MW/año", source: "Benchmark sectorial offshore wind" }
+      { parameter: "Annual O&M", value: "€38k/MW/year", source: "Offshore wind sector benchmark" }
     ],
     debt: [
-      { parameter: "Tipo de interés (construcción)", value: "5.4%", source: "Term sheet ilustrativo de deuda senior" },
-      { parameter: "Gearing", value: "70%", source: "Estructura objetivo del sponsor" }
+      { parameter: "Interest rate (construction)", value: "5.4%", source: "Illustrative senior debt term sheet" },
+      { parameter: "Gearing", value: "70%", source: "Sponsor's target structure" }
     ],
     equity: [
-      { parameter: "Múltiplo de salida", value: "12.0×", source: "Benchmark de transacciones comparables (ejemplo)" }
+      { parameter: "Exit multiple", value: "12.0×", source: "Comparable transaction benchmark (example)" }
     ]
   },
 
   sources: [
-    { org: "Ejemplo ilustrativo", title: "Datos de mercado de energía eólica offshore", desc: "Cifras de referencia para fines demostrativos del portfolio.", href: "#" }
+    { org: "Illustrative example", title: "Offshore wind energy market data", desc: "Reference figures for demonstration purposes only.", href: "#" }
   ]
 });

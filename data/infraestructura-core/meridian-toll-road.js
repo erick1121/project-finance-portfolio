@@ -3,13 +3,13 @@ window.CASE_STUDIES = window.CASE_STUDIES || [];
 window.CASE_STUDIES.push({
   id: "meridian-toll-road",
   sector: "core",
-  sectorLabel: "Infraestructura Core",
+  sectorLabel: "Core Infrastructure",
   status: "example",
 
   name: "Meridian Toll Road",
-  location: "Corredor Norte, ejemplo ilustrativo",
-  size: "62 km · autopista de peaje de 2×2 carriles",
-  tagline: "Concesión de autopista de peaje a 30 años con mecanismo de disponibilidad y tráfico mínimo garantizado.",
+  location: "Northern Corridor, illustrative example",
+  size: "62 km · 2×2-lane toll road",
+  tagline: "30-year toll road concession combining real tolling with a minimum guaranteed traffic mechanism.",
 
   metrics: [
     { label: "Equity IRR", value: "9.6%" },
@@ -18,40 +18,40 @@ window.CASE_STUDIES.push({
   ],
 
   facts: [
-    { label: "Ubicación", value: "Corredor Norte (ejemplo ilustrativo)" },
-    { label: "Tamaño", value: "62 km · 2×2 carriles" },
-    { label: "Mecanismo de ingresos", value: "Peaje real + tráfico mínimo garantizado (años 1-10)" },
-    { label: "Promotor(es)", value: "Vía Infraestructuras (60%) / Continental Pension Fund (40%)" },
-    { label: "Capex total", value: "740 €M (contingencia 4% + IDC)" },
-    { label: "Estructura de financiación", value: "75% deuda senior / 25% equity" },
-    { label: "Periodo de concesión", value: "30 años" }
+    { label: "Location", value: "Northern Corridor (illustrative example)" },
+    { label: "Size", value: "62 km · 2×2 lanes" },
+    { label: "Revenue mechanism", value: "Real tolling + minimum guaranteed traffic (years 1-10)" },
+    { label: "Sponsor(s)", value: "Vía Infraestructuras (60%) / Continental Pension Fund (40%)" },
+    { label: "Total capex", value: "€740M (4% contingency + IDC)" },
+    { label: "Financing structure", value: "75% senior debt / 25% equity" },
+    { label: "Concession period", value: "30 years" }
   ],
 
   executiveSummary: [
-    "Meridian Toll Road es un caso de estudio ilustrativo de una concesión de autopista de peaje de 62 km a 30 años, con un mecanismo híbrido de ingresos: peaje real complementado por un tráfico mínimo garantizado durante la primera década para mitigar el riesgo de rampa de tráfico (ramp-up risk).",
-    "En el caso base, el proyecto genera un Equity IRR de 9.6% con un DSCR mínimo de 1.28×, apoyado en una estructura de apalancamiento del 75% y en la garantía pública de tráfico mínimo que reduce sustancialmente la volatilidad de ingresos en los primeros años, el periodo de mayor incertidumbre."
+    "Meridian Toll Road is an illustrative case study for a 62 km, 30-year toll road concession with a hybrid revenue mechanism: real tolling complemented by a minimum guaranteed traffic level during the first decade, mitigating ramp-up risk.",
+    "In the base case, the project generates an Equity IRR of 9.6% with a minimum DSCR of 1.28×, supported by a 75% leverage structure and the public traffic guarantee, which substantially reduces revenue volatility in the early years — the period of greatest uncertainty."
   ],
 
   scenarioTable: {
-    caption: "Resultados por escenario probabilístico de tráfico",
+    caption: "Results by probabilistic traffic scenario",
     rows: [
       { label: "Equity IRR", unit: "%", p50: 9.6, p75: 7.1, p90: 4.8, p99: 1.2 },
-      { label: "DSCR Mínimo", unit: "×", p50: 1.28, p75: 1.24, p90: 1.19, p99: 1.11 }
+      { label: "Min. DSCR", unit: "×", p50: 1.28, p75: 1.24, p90: 1.19, p99: 1.11 }
     ]
   },
 
   callouts: [
-    { value: "5.8pp", text: "Swing de Equity IRR ante ±15% de desviación en el tráfico proyectado post tráfico-mínimo." },
-    { value: "1.11×", text: "DSCR mínimo en P99, con margen positivo sobre el covenant de 1.05×." },
-    { value: "10 años", text: "Duración de la garantía de tráfico mínimo que protege el periodo de mayor incertidumbre." }
+    { value: "5.8pp", text: "Equity IRR swing from a ±15% deviation in projected traffic post minimum-traffic period." },
+    { value: "1.11×", text: "Minimum DSCR in P99, with a positive margin over the 1.05× covenant." },
+    { value: "10 years", text: "Duration of the minimum traffic guarantee protecting the period of greatest uncertainty." }
   ],
 
   sensitivities: [
-    { label: "Tráfico (post garantía mínima)", low: -5.8, high: 3.4, note: "El riesgo se concentra en los años 11-30, una vez expira el tráfico mínimo garantizado." },
-    { label: "Capex de construcción", low: -3.9, high: 1.8, note: "Contrato EPC a precio fijo con penalizaciones por retraso." },
-    { label: "Tasa de inflación aplicada al peaje", low: -2.5, high: 2.9, note: "Peaje indexado a IPC con revisión anual." },
-    { label: "Costes de mantenimiento mayor (años 15/25)", low: -1.6, high: 0.9, note: "Fondo de reserva de mantenimiento (MRA) dotado desde el año 5." },
-    { label: "Tipo de interés", low: -0.6, high: 0.6, note: "70% de la deuda a tipo fijo, 30% cubierto con swap a 15 años." }
+    { label: "Traffic (post minimum guarantee)", low: -5.8, high: 3.4, note: "Risk concentrates in years 11-30, once the minimum guaranteed traffic expires." },
+    { label: "Construction capex", low: -3.9, high: 1.8, note: "Fixed-price EPC contract with delay penalties." },
+    { label: "Inflation rate applied to toll", low: -2.5, high: 2.9, note: "Toll indexed to CPI with annual review." },
+    { label: "Major maintenance costs (years 15/25)", low: -1.6, high: 0.9, note: "Maintenance Reserve Account (MRA) funded from year 5." },
+    { label: "Interest rate", low: -0.6, high: 0.6, note: "70% of debt at fixed rate, 30% hedged with a 15-year swap." }
   ],
 
   debtProfile: {
@@ -72,45 +72,45 @@ window.CASE_STUDIES.push({
   },
 
   insightsPE: [
-    { title: "El tráfico post-garantía es el driver dominante", body: "A partir del año 11, cuando expira el tráfico mínimo garantizado, la sensibilidad del Equity IRR al tráfico real se dispara a 5.8 puntos porcentuales." },
-    { title: "La indexación del peaje amplifica el upside", body: "Un escenario de inflación alta favorece el retorno de equity más que perjudica el coste de la deuda, dado el mix de tipo fijo mayoritario." },
-    { title: "El mantenimiento mayor está bien acotado", body: "Los picos de capex de reposición en los años 15 y 25 están pre-financiados vía el fondo de reserva, limitando su impacto en el IRR a menos de 2 puntos." }
+    { title: "Post-guarantee traffic is the dominant driver", body: "From year 11, once the minimum guaranteed traffic expires, the Equity IRR's sensitivity to real traffic jumps to 5.8 percentage points." },
+    { title: "Toll indexation amplifies the upside", body: "A high-inflation scenario benefits the equity return more than it hurts the cost of debt, given the mostly fixed-rate debt mix." },
+    { title: "Major maintenance is well contained", body: "The capex replacement peaks in years 15 and 25 are pre-funded via the reserve account, limiting their IRR impact to under 2 points." }
   ],
 
   insightsLenders: [
-    { title: "El punto de mayor tensión es el año 12", body: "El DSCR toca su mínimo (1.14×) justo tras la expiración de la garantía de tráfico, coincidiendo con el primer gran ciclo de repago de principal." },
-    { title: "Cobertura de covenant con margen razonable", body: "Incluso en el percentil P99 el DSCR mínimo (1.11×) queda por encima del covenant de 1.05×, sin eventos de default en el modelo." },
-    { title: "El diseño de la garantía de tráfico reduce el riesgo de rampa", body: "Los primeros 10 años, estructuralmente los de mayor incertidumbre de demanda, quedan protegidos por el mecanismo de tráfico mínimo, trasladando el riesgo residual a un periodo donde el activo ya tiene track record." }
+    { title: "Peak stress point is year 12", body: "DSCR hits its minimum (1.14×) right after the traffic guarantee expires, coinciding with the first major principal repayment cycle." },
+    { title: "Reasonable covenant coverage margin", body: "Even in the P99 percentile, the minimum DSCR (1.11×) stays above the 1.05× covenant, with no default events in the model." },
+    { title: "Traffic guarantee design reduces ramp-up risk", body: "The first 10 years — structurally the period of highest demand uncertainty — are protected by the minimum traffic mechanism, shifting residual risk to a period where the asset already has a track record." }
   ],
 
   modelFile: {
     name: "meridian_toll_road_model.xlsx",
-    meta: "Excel workbook · Construction & Operations modules · Modelo de ejemplo",
+    meta: "Excel workbook · Construction & Operations modules · Sample model",
     href: "#"
   },
 
   assumptions: {
     revenue: [
-      { parameter: "Tarifa de peaje base", value: "0.14 €/km (precios 2026)", source: "Benchmark de concesiones comparables (ejemplo)" },
-      { parameter: "Tráfico mínimo garantizado", value: "85% del tráfico P50, años 1-10", source: "Term sheet de la concesión (ejemplo)" }
+      { parameter: "Base toll rate", value: "€0.14/km (2026 prices)", source: "Comparable concession benchmark (example)" },
+      { parameter: "Minimum guaranteed traffic", value: "85% of P50 traffic, years 1-10", source: "Concession term sheet (example)" }
     ],
     capex: [
-      { parameter: "Capex total", value: "740 €M", source: "Estimación EPC + benchmark de mercado" },
-      { parameter: "Contingencia", value: "4%", source: "Benchmark sectorial de autopistas de peaje" }
+      { parameter: "Total capex", value: "€740M", source: "EPC estimate + market benchmark" },
+      { parameter: "Contingency", value: "4%", source: "Toll road sector benchmark" }
     ],
     opex: [
-      { parameter: "O&M anual", value: "9.5 k€/km/año", source: "Benchmark sectorial de autopistas de peaje" }
+      { parameter: "Annual O&M", value: "€9.5k/km/year", source: "Toll road sector benchmark" }
     ],
     debt: [
-      { parameter: "Tipo de interés (mixto fijo/cubierto)", value: "5.1%", source: "Term sheet ilustrativo de deuda senior" },
-      { parameter: "Gearing", value: "75%", source: "Estructura objetivo del sponsor" }
+      { parameter: "Interest rate (mixed fixed/hedged)", value: "5.1%", source: "Illustrative senior debt term sheet" },
+      { parameter: "Gearing", value: "75%", source: "Sponsor's target structure" }
     ],
     equity: [
-      { parameter: "Múltiplo de salida", value: "10.5×", source: "Benchmark de transacciones comparables (ejemplo)" }
+      { parameter: "Exit multiple", value: "10.5×", source: "Comparable transaction benchmark (example)" }
     ]
   },
 
   sources: [
-    { org: "Ejemplo ilustrativo", title: "Datos de mercado de concesiones de autopistas", desc: "Cifras de referencia para fines demostrativos del portfolio.", href: "#" }
+    { org: "Illustrative example", title: "Toll road concession market data", desc: "Reference figures for demonstration purposes only.", href: "#" }
   ]
 });

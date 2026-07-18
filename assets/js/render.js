@@ -1,6 +1,6 @@
 /**
- * Renderiza index.html y case-study.html a partir de window.CASE_STUDIES,
- * poblado por los ficheros en data/<sector>/*.js (ver data/_template.js).
+ * Renders index.html and case-study.html from window.CASE_STUDIES,
+ * populated by the files in data/<sector>/*.js (see data/_template.js).
  */
 
 const SECTOR_ICONS = {
@@ -40,7 +40,7 @@ function getProjects() {
 function renderProjectCard(project) {
   const statusBadge =
     project.status === "example"
-      ? `<span class="sector-tag" style="background:transparent;border:1px solid var(--line-strong);color:var(--ink-faint);">Dato de ejemplo</span>`
+      ? `<span class="sector-tag" style="background:transparent;border:1px solid var(--line-strong);color:var(--ink-faint);">Sample data</span>`
       : "";
 
   const metrics = project.metrics
@@ -62,7 +62,7 @@ function renderProjectCard(project) {
       <div class="case-meta">${project.location} · ${project.size}</div>
       <div class="case-metrics">${metrics}</div>
       <p>${project.tagline}</p>
-      <a href="case-study.html?id=${project.id}" class="link-arrow">Ver caso completo <span class="arrow">→</span></a>
+      <a href="case-study.html?id=${project.id}" class="link-arrow">View full case <span class="arrow">→</span></a>
     </article>`;
 }
 
@@ -73,16 +73,16 @@ function renderIndex() {
   const projects = getProjects();
 
   if (projects.length === 0) {
-    grid.innerHTML = `<p class="empty-state">Aún no hay casos de estudio. Añade uno en data/&lt;sector&gt;/tu-proyecto.js (ver data/_template.js).</p>`;
+    grid.innerHTML = `<p class="empty-state">No case studies yet. Add one in data/&lt;sector&gt;/your-project.js (see data/_template.js).</p>`;
     return;
   }
 
   grid.innerHTML = projects.map(renderProjectCard).join("");
 
   const totalValue = projects.reduce((sum, p) => {
-    const capex = (p.assumptions?.capex || []).find((a) => /capex total/i.test(a.parameter));
+    const capex = (p.assumptions?.capex || []).find((a) => /total/i.test(a.parameter));
     const match = capex?.value?.match(/([\d.,]+)\s*€?M/);
-    return sum + (match ? parseFloat(match[1].replace(",", ".")) : 0);
+    return sum + (match ? parseFloat(match[1].replace(/,/g, "")) : 0);
   }, 0);
 
   const statValueEl = document.getElementById("stat-total-value");
@@ -136,11 +136,11 @@ function renderExecutiveSummary(project) {
 
   return `
     <section class="case-section" id="s-exec">
-      <div class="section-number">01 — Resumen Ejecutivo</div>
-      <h2>Resumen Ejecutivo</h2>
+      <div class="section-number">01 — Executive Summary</div>
+      <h2>Executive Summary</h2>
       ${paragraphs}
 
-      <h3 class="subhead" style="margin-top: var(--space-8);">Resultados por escenario probabilístico</h3>
+      <h3 class="subhead" style="margin-top: var(--space-8);">Probabilistic Scenario Results</h3>
       <div id="chart-scenario"></div>
 
       <div class="callout-row">${callouts}</div>
@@ -152,7 +152,7 @@ function renderOverview(project) {
   return `
     <section class="case-section" id="s-overview">
       <div class="section-number">02 — Overview</div>
-      <h2>Overview de la Transacción</h2>
+      <h2>Transaction Overview</h2>
       <table class="facts-table"><tbody>${rows}</tbody></table>
     </section>`;
 }
@@ -177,18 +177,18 @@ function renderInsightColumn(title, insights) {
 function renderTakeaways(project) {
   return `
     <section class="case-section" id="s-takeaways">
-      <div class="section-number">03 — Conclusiones Clave</div>
-      <h2>Conclusiones Clave</h2>
+      <div class="section-number">03 — Key Takeaways</div>
+      <h2>Key Takeaways</h2>
 
-      <h3 class="subhead" style="margin-top:0;">Sensibilidades sobre el Equity IRR</h3>
+      <h3 class="subhead" style="margin-top:0;">Sensitivities on Equity IRR</h3>
       <div id="chart-tornado"></div>
 
-      <h3 class="subhead" style="margin-top: var(--space-8);">Perfil de DSCR durante la vida de la deuda</h3>
+      <h3 class="subhead" style="margin-top: var(--space-8);">DSCR Profile Across the Debt Tenor</h3>
       <div id="chart-dscr"></div>
 
       <div class="insight-columns">
-        ${renderInsightColumn("Perspectiva de Private Equity", project.insightsPE)}
-        ${renderInsightColumn("Perspectiva de los Prestamistas", project.insightsLenders)}
+        ${renderInsightColumn("Private Equity Perspective", project.insightsPE)}
+        ${renderInsightColumn("Lenders' Perspective", project.insightsLenders)}
       </div>
     </section>`;
 }
@@ -198,16 +198,16 @@ function renderModelAccess(project) {
   if (!mf) {
     return `
       <section class="case-section" id="s-model">
-        <div class="section-number">04 — Acceso al Modelo</div>
+        <div class="section-number">04 — Model Access</div>
         <h2>My Model &amp; Working Files</h2>
-        <p>Modelo disponible bajo petición.</p>
+        <p>Model available upon request.</p>
       </section>`;
   }
   return `
     <section class="case-section" id="s-model">
-      <div class="section-number">04 — Acceso al Modelo</div>
+      <div class="section-number">04 — Model Access</div>
       <h2>My Model &amp; Working Files</h2>
-      <p>Modelo de ejemplo con fines demostrativos.</p>
+      <p>Sample model for demonstration purposes.</p>
       <div class="download-card blueprint-marks">
         <div class="file-info">
           <svg class="file-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -218,7 +218,7 @@ function renderModelAccess(project) {
             <div class="file-meta">${mf.meta}</div>
           </div>
         </div>
-        <a href="${mf.href}" class="btn btn-secondary">Descargar modelo</a>
+        <a href="${mf.href}" class="btn btn-secondary">Download model</a>
       </div>
     </section>`;
 }
@@ -233,7 +233,7 @@ function assumptionTable(title, rows) {
       <h3>${title}</h3>
       <div class="table-scroll">
         <table>
-          <thead><tr><th>Supuesto</th><th>Valor / Rango</th><th>Fuente / Base</th></tr></thead>
+          <thead><tr><th>Assumption</th><th>Value / Range</th><th>Source / Basis</th></tr></thead>
           <tbody>${body}</tbody>
         </table>
       </div>
@@ -244,12 +244,12 @@ function renderAssumptions(project) {
   const a = project.assumptions || {};
   return `
     <section class="case-section" id="s-assumptions">
-      <div class="section-number">05 — Supuestos Clave</div>
-      <h2>Supuestos Clave</h2>
-      ${assumptionTable("Ingresos", a.revenue)}
+      <div class="section-number">05 — Key Assumptions</div>
+      <h2>Key Assumptions</h2>
+      ${assumptionTable("Revenue", a.revenue)}
       ${assumptionTable("Capex", a.capex)}
       ${assumptionTable("Opex", a.opex)}
-      ${assumptionTable("Deuda", a.debt)}
+      ${assumptionTable("Debt", a.debt)}
       ${assumptionTable("Equity", a.equity)}
     </section>`;
 }
@@ -262,15 +262,15 @@ function renderSources(project) {
         <span class="source-org">${s.org}</span>
         <div>
           <div class="source-title">${s.title}</div>
-          <div class="source-desc">${s.desc} <a href="${s.href}" class="link-underline">Ver fuente ↗</a></div>
+          <div class="source-desc">${s.desc} <a href="${s.href}" class="link-underline">See source ↗</a></div>
         </div>
       </li>`
     )
     .join("");
   return `
     <section class="case-section" id="s-sources" style="padding-bottom: var(--space-16);">
-      <div class="section-number">06 — Fuentes</div>
-      <h2>Fuentes</h2>
+      <div class="section-number">06 — Sources</div>
+      <h2>Sources</h2>
       <ul class="sources-list">${items}</ul>
     </section>`;
 }
@@ -281,7 +281,7 @@ function renderCaseStudy() {
 
   const project = getProjectFromURL();
   if (!project) {
-    main.innerHTML = `<p class="empty-state">Proyecto no encontrado. <a href="index.html" style="color:var(--accent);">Volver al portfolio</a>.</p>`;
+    main.innerHTML = `<p class="empty-state">Project not found. <a href="index.html" style="color:var(--accent);">Back to portfolio</a>.</p>`;
     document.querySelector(".case-toc")?.remove();
     return;
   }

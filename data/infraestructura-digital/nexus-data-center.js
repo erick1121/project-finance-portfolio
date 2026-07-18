@@ -3,13 +3,13 @@ window.CASE_STUDIES = window.CASE_STUDIES || [];
 window.CASE_STUDIES.push({
   id: "nexus-data-center",
   sector: "digital",
-  sectorLabel: "Infraestructura Digital",
+  sectorLabel: "Digital Infrastructure",
   status: "example",
 
   name: "Nexus Data Center Campus",
-  location: "Hub digital del Sur de Europa, ejemplo ilustrativo",
-  size: "48 MW de carga IT · campus de 3 edificios",
-  tagline: "Financiación de un campus de data centers hyperscale bajo contratos de arrendamiento a largo plazo con un único ancla tenant.",
+  location: "Southern Europe digital hub, illustrative example",
+  size: "48 MW IT load · 3-building campus",
+  tagline: "Financing for a hyperscale data center campus under long-term lease contracts with a single anchor tenant.",
 
   metrics: [
     { label: "Equity IRR", value: "13.4%" },
@@ -18,40 +18,40 @@ window.CASE_STUDIES.push({
   ],
 
   facts: [
-    { label: "Ubicación", value: "Hub digital del Sur de Europa (ejemplo ilustrativo)" },
-    { label: "Capacidad", value: "48 MW de carga IT · 3 edificios" },
-    { label: "Mecanismo de ingresos", value: "Contrato de arrendamiento (lease) a 15 años con tenant ancla hyperscale" },
-    { label: "Promotor(es)", value: "Digital Core Partners (50%) / Helios Infrastructure Fund (50%)" },
-    { label: "Capex total", value: "560 €M (contingencia 6% + IDC)" },
-    { label: "Estructura de financiación", value: "65% deuda senior / 35% equity" },
-    { label: "Periodo de contrato", value: "15 años (con opción de renovación de 2×5 años)" }
+    { label: "Location", value: "Southern Europe digital hub (illustrative example)" },
+    { label: "Capacity", value: "48 MW IT load · 3 buildings" },
+    { label: "Revenue mechanism", value: "15-year lease contract with a hyperscale anchor tenant" },
+    { label: "Sponsor(s)", value: "Digital Core Partners (50%) / Helios Infrastructure Fund (50%)" },
+    { label: "Total capex", value: "€560M (6% contingency + IDC)" },
+    { label: "Financing structure", value: "65% senior debt / 35% equity" },
+    { label: "Contract period", value: "15 years (with 2×5-year renewal option)" }
   ],
 
   executiveSummary: [
-    "Nexus Data Center Campus es un caso de estudio ilustrativo de financiación de un campus de tres data centers hyperscale (48 MW de carga IT), estructurado sobre un contrato de arrendamiento a 15 años con un único tenant ancla de grado inversión.",
-    "Bajo el caso base, el proyecto genera un Equity IRR de 13.4%, el más alto de los tres sectores del portfolio, reflejando tanto el crecimiento estructural de la demanda de capacidad digital como el riesgo de concentración en un único tenant, mitigado por la solidez crediticia del contrato y una cláusula de renovación anticipada."
+    "Nexus Data Center Campus is an illustrative case study for financing a three-building hyperscale data center campus (48 MW IT load), structured around a 15-year lease contract with a single investment-grade anchor tenant.",
+    "In the base case, the project generates a 13.4% Equity IRR — the highest of the portfolio's three sectors — reflecting both the structural growth in digital capacity demand and the concentration risk of a single tenant, mitigated by the contract's credit strength and an early-renewal clause."
   ],
 
   scenarioTable: {
-    caption: "Resultados por escenario probabilístico de ocupación y renovación",
+    caption: "Results by probabilistic occupancy and renewal scenario",
     rows: [
       { label: "Equity IRR", unit: "%", p50: 13.4, p75: 9.8, p90: 5.1, p99: -1.4 },
-      { label: "DSCR Mínimo", unit: "×", p50: 1.35, p75: 1.29, p90: 1.20, p99: 1.09 }
+      { label: "Min. DSCR", unit: "×", p50: 1.35, p75: 1.29, p90: 1.20, p99: 1.09 }
     ]
   },
 
   callouts: [
-    { value: "9.2pp", text: "Swing de Equity IRR ante un escenario de no renovación del tenant ancla al año 15." },
-    { value: "1.09×", text: "DSCR mínimo en P99 — el único punto del portfolio que se acerca al covenant de 1.05×." },
-    { value: "97%", text: "Ocupación contratada desde el día 1 gracias al pre-lease con el tenant ancla." }
+    { value: "9.2pp", text: "Equity IRR swing under a non-renewal scenario for the anchor tenant at year 15." },
+    { value: "1.09×", text: "Minimum DSCR in P99 — the only point in the portfolio that approaches the 1.05× covenant." },
+    { value: "97%", text: "Contracted occupancy from day 1, thanks to the pre-lease with the anchor tenant." }
   ],
 
   sensitivities: [
-    { label: "Renovación del tenant ancla (año 15)", low: -9.2, high: 0, note: "El riesgo de concentración en un único tenant es el principal driver de downside del portfolio." },
-    { label: "Capex de construcción (equipamiento crítico)", low: -4.8, high: 1.9, note: "Cadena de suministro de equipos de refrigeración y generadores como principal riesgo de sobrecoste." },
-    { label: "Precio de la energía (PPA parcial)", low: -3.1, high: 2.2, note: "40% del consumo cubierto por PPA a 10 años, el resto expuesto a mercado mayorista." },
-    { label: "Costes de conectividad y fibra", low: -1.4, high: 0.8, note: "Contratos de conectividad a precio fijo con los principales carriers." },
-    { label: "Tipo de interés", low: -0.5, high: 0.5, note: "Cobertura de tipo fijo sobre el 80% de la deuda senior." }
+    { label: "Anchor tenant renewal (year 15)", low: -9.2, high: 0, note: "Single-tenant concentration risk is the portfolio's main downside driver." },
+    { label: "Construction capex (critical equipment)", low: -4.8, high: 1.9, note: "Cooling equipment and generator supply chain as the main cost overrun risk." },
+    { label: "Energy price (partial PPA)", low: -3.1, high: 2.2, note: "40% of consumption covered by a 10-year PPA, the rest exposed to the wholesale market." },
+    { label: "Connectivity and fiber costs", low: -1.4, high: 0.8, note: "Fixed-price connectivity contracts with major carriers." },
+    { label: "Interest rate", low: -0.5, high: 0.5, note: "Fixed-rate hedge on 80% of senior debt." }
   ],
 
   debtProfile: {
@@ -71,45 +71,45 @@ window.CASE_STUDIES.push({
   },
 
   insightsPE: [
-    { title: "La concentración en un único tenant domina el riesgo", body: "El escenario de no renovación en el año 15 es, con diferencia, la mayor fuente de downside del Equity IRR (-9.2pp), muy por delante del riesgo de construcción o de precio de la energía." },
-    { title: "El crecimiento estructural de demanda sostiene el upside", body: "La escasez de capacidad de datacenter en el hub regional da soporte a escenarios de renovación anticipada o expansión, no capturados en el caso base conservador." },
-    { title: "El PPA parcial limita la exposición a precios de energía", body: "Con un 40% del consumo cubierto, el proyecto retiene upside en mercados de energía a la baja sin exponerse por completo a la volatilidad del pool." }
+    { title: "Single-tenant concentration dominates the risk", body: "The non-renewal scenario at year 15 is, by far, the portfolio's largest source of Equity IRR downside (-9.2pp), well ahead of construction or energy price risk." },
+    { title: "Structural demand growth supports the upside", body: "Data center capacity scarcity in the regional hub supports early-renewal or expansion scenarios, not captured in the conservative base case." },
+    { title: "The partial PPA limits energy price exposure", body: "With 40% of consumption covered, the project retains upside in falling energy markets without full exposure to pool volatility." }
   ],
 
   insightsLenders: [
-    { title: "El año 15 es el punto crítico de la estructura de deuda", body: "El DSCR cae a 1.09× coincidiendo exactamente con el vencimiento del contrato de arrendamiento inicial, el único momento del proyecto donde el margen sobre covenant (1.05×) es mínimo." },
-    { title: "Perfil de amortización acelerado antes del año 15", body: "La estructura de deuda amortiza más rápido en los primeros 15 años precisamente para reducir el saldo vivo antes del punto de mayor incertidumbre de renovación." },
-    { title: "Recomendación: covenant de refinanciación o cash sweep en año 13", body: "Un mecanismo de cash sweep adicional dos años antes del vencimiento del lease reduciría further el riesgo de refinanciación en el escenario de no renovación." }
+    { title: "Year 15 is the critical point in the debt structure", body: "DSCR drops to 1.09×, coinciding exactly with the initial lease contract's expiry — the single moment in the project with the thinnest margin over the 1.05× covenant." },
+    { title: "Accelerated amortization profile before year 15", body: "The debt structure amortizes faster in the first 15 years specifically to reduce the outstanding balance ahead of the point of greatest renewal uncertainty." },
+    { title: "Recommendation: refinancing covenant or cash sweep at year 13", body: "An additional cash sweep mechanism two years ahead of the lease expiry would further reduce refinancing risk in the non-renewal scenario." }
   ],
 
   modelFile: {
     name: "nexus_data_center_model.xlsx",
-    meta: "Excel workbook · Construction & Operations modules · Modelo de ejemplo",
+    meta: "Excel workbook · Construction & Operations modules · Sample model",
     href: "#"
   },
 
   assumptions: {
     revenue: [
-      { parameter: "Renta anual por MW contratado", value: "310 k€/MW/año", source: "Benchmark de mercado de colocation hyperscale (ejemplo)" },
-      { parameter: "Ocupación contratada al cierre", value: "97% (pre-lease con tenant ancla)", source: "Term sheet del contrato de arrendamiento (ejemplo)" }
+      { parameter: "Annual rent per contracted MW", value: "€310k/MW/year", source: "Hyperscale colocation market benchmark (example)" },
+      { parameter: "Occupancy contracted at close", value: "97% (pre-lease with anchor tenant)", source: "Lease contract term sheet (example)" }
     ],
     capex: [
-      { parameter: "Capex total", value: "560 €M", source: "Estimación EPC + benchmark de mercado" },
-      { parameter: "Contingencia", value: "6%", source: "Benchmark sectorial de data centers hyperscale" }
+      { parameter: "Total capex", value: "€560M", source: "EPC estimate + market benchmark" },
+      { parameter: "Contingency", value: "6%", source: "Hyperscale data center sector benchmark" }
     ],
     opex: [
-      { parameter: "O&M + energía no cubierta por PPA", value: "62 k€/MW/año", source: "Benchmark sectorial de data centers" }
+      { parameter: "O&M + energy not covered by PPA", value: "€62k/MW/year", source: "Data center sector benchmark" }
     ],
     debt: [
-      { parameter: "Tipo de interés (80% cubierto)", value: "5.6%", source: "Term sheet ilustrativo de deuda senior" },
-      { parameter: "Gearing", value: "65%", source: "Estructura objetivo del sponsor" }
+      { parameter: "Interest rate (80% hedged)", value: "5.6%", source: "Illustrative senior debt term sheet" },
+      { parameter: "Gearing", value: "65%", source: "Sponsor's target structure" }
     ],
     equity: [
-      { parameter: "Múltiplo de salida", value: "14.0×", source: "Benchmark de transacciones comparables (ejemplo)" }
+      { parameter: "Exit multiple", value: "14.0×", source: "Comparable transaction benchmark (example)" }
     ]
   },
 
   sources: [
-    { org: "Ejemplo ilustrativo", title: "Datos de mercado de infraestructura digital", desc: "Cifras de referencia para fines demostrativos del portfolio.", href: "#" }
+    { org: "Illustrative example", title: "Digital infrastructure market data", desc: "Reference figures for demonstration purposes only.", href: "#" }
   ]
 });
