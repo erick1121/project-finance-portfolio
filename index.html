@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Erick Córdova · Project Finance Portfolio</title>
+  <meta name="description" content="Portfolio de casos de estudio en project finance de Erick Córdova: energía renovable, infraestructura core e infraestructura digital." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="site-nav">
+    <div class="container">
+      <a href="#" class="brand">Erick Córdova <span class="brand-sub">· Project Finance</span></a>
+      <ul class="nav-links">
+        <li><a href="#casos">Casos de Estudio</a></li>
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="hero-grid-bg" aria-hidden="true"></div>
+    <div class="container">
+      <span class="eyebrow">Project Finance &amp; Infrastructure Investment · PPP · Debt Advisory</span>
+      <h1 class="reveal">Modelos financieros con <em>rigor</em> de inversión</h1>
+      <p class="hero-sub reveal">
+        Profesional de las finanzas de infraestructura con más de 4 años de
+        experiencia en el lado del sponsor en Project Finance —
+        estructuración, modelización y gestión de concesiones PPP. Este
+        portfolio recoge modelos propios de energía renovable,
+        infraestructura core y digital, con foco en bancabilidad y estructura
+        de capital.
+      </p>
+      <div class="hero-ctas reveal">
+        <a href="#casos" class="btn btn-primary">Ver Casos de Estudio</a>
+        <a href="#contacto" class="btn btn-secondary">Contactar</a>
+      </div>
+
+      <div class="stat-bar reveal">
+        <div class="stat">
+          <div class="stat-value" id="stat-total-value">—</div>
+          <div class="stat-label">Valor total modelado (capex)</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" id="stat-count">—</div>
+          <div class="stat-label">Casos de estudio</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" id="stat-sectors">—</div>
+          <div class="stat-label">Sectores cubiertos</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">100%</div>
+          <div class="stat-label">Modelos propios</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CASOS DE ESTUDIO ================= -->
+  <section id="casos">
+    <div class="container">
+      <div class="section-heading reveal">
+        <span class="eyebrow">Portfolio</span>
+        <h2>Casos de Estudio</h2>
+      </div>
+
+      <div class="filter-pills reveal" role="group" aria-label="Filtrar casos de estudio por sector">
+        <button class="pill" type="button" data-filter="all" aria-pressed="true">Todos</button>
+        <button class="pill" type="button" data-filter="renewable" aria-pressed="false">Energía Renovable</button>
+        <button class="pill" type="button" data-filter="core" aria-pressed="false">Infraestructura Core</button>
+        <button class="pill" type="button" data-filter="digital" aria-pressed="false">Infraestructura Digital</button>
+      </div>
+
+      <!-- El contenido de este grid se genera desde window.CASE_STUDIES
+           (data/<sector>/*.js) vía assets/js/render.js -->
+      <div class="case-grid reveal" id="case-grid"></div>
+      <p class="empty-state" id="empty-state" hidden>No hay casos de estudio en este sector todavía.</p>
+    </div>
+  </section>
+
+  <!-- ================= SOBRE MÍ ================= -->
+  <section id="sobre-mi" class="about">
+    <div class="container">
+      <div class="section-heading reveal" style="padding-top:0;">
+        <span class="eyebrow">Perfil</span>
+        <h2>Sobre mí</h2>
+      </div>
+
+      <div class="about-grid reveal">
+        <div>
+          <p>Actualmente en Sacyr como PPP SPV Manager, gestiono una concesión hospitalaria de disponibilidad de 100M€ bajo deuda sin recurso: modelo financiero integrado, certificación trimestral de DSCR y covenants, y relación con prestamistas senior. Antes cubrí una cartera de 7 concesiones de autopistas de peaje (capex &gt;1.150M€) como analista, y monitoricé costes de construcción en Acciona sobre proyectos de infraestructura &gt;50M€.</p>
+          <p>Amplío esta base con el Mastère Spécialisé en Infrastructure Project Finance de la École des Ponts ParisTech (ENPC, desde sept. 2026). Este portfolio reúne modelos propios de energía, infraestructura core y digital — pensado como carta de presentación para procesos de transacciones y, a futuro, también como material de referencia docente.</p>
+        </div>
+
+        <ul class="fact-list">
+          <li><span class="fact-label">Ubicación</span><span class="fact-value">Madrid, España · París (desde sept. 2026)</span></li>
+          <li><span class="fact-label">Formación</span><span class="fact-value">MSc Infrastructure Project Finance, ENPC · MSc Civil Engineering, UPM</span></li>
+          <li><span class="fact-label">Sectores</span><span class="fact-value">PPP, Energía, Transporte, Infraestructura Digital</span></li>
+          <li><span class="fact-label">Herramientas</span><span class="fact-value">Excel/VBA, Python, Power BI, GenAI para Due Diligence</span></li>
+          <li><span class="fact-label">Idiomas</span><span class="fact-value">Español (nativo), Inglés (full professional), Francés (B2/C1)</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACTO ================= -->
+  <section id="contacto" class="contact">
+    <div class="container">
+      <span class="eyebrow" style="justify-content:center;">Contacto</span>
+      <h2 class="reveal">¿Hablamos de tu próximo proyecto?</h2>
+      <div class="contact-links reveal">
+        <a href="mailto:ercordova21@gmail.com" class="link-underline">ercordova21@gmail.com</a>
+        <a href="https://www.linkedin.com/in/erickcl" class="link-underline" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>&copy; <span id="year"></span> Erick Córdova · Project Finance Portfolio</span>
+      <a href="#" class="link-underline">Volver arriba</a>
+    </div>
+  </footer>
+
+  <!-- Ficheros de datos — uno por caso de estudio, organizados por sector -->
+  <script src="data/energia-renovable/aurora-offshore-wind.js"></script>
+  <script src="data/infraestructura-core/meridian-toll-road.js"></script>
+  <script src="data/infraestructura-digital/nexus-data-center.js"></script>
+
+  <script src="assets/js/charts.js"></script>
+  <script src="assets/js/render.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
