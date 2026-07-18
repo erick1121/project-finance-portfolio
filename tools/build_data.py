@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
-Converts case study Excel workbooks (excel/<sector>/*.xlsx) into the .js
-data files the website reads (data/<sector>/*.js).
+Converts case study Excel workbooks (data/<sector>/*.xlsx) into the .js
+data files the website reads (data/<sector>/*.js — same folder, same name,
+just a different extension).
 
 Usage:
     python3 tools/build_data.py
@@ -24,7 +25,6 @@ except ImportError:
     sys.exit(1)
 
 ROOT = Path(__file__).resolve().parent.parent
-EXCEL_DIR = ROOT / "excel"
 DATA_DIR = ROOT / "data"
 
 
@@ -71,7 +71,7 @@ def read_pairs(wb, sheet_name, key_a, key_b):
     ]
 
 
-def build_project(xlsx_path: Path, sector_folder: str):
+def build_project(xlsx_path: Path):
     wb = openpyxl.load_workbook(xlsx_path, data_only=True)
     info = read_info(wb)
 
@@ -181,23 +181,22 @@ def write_js(project: dict, out_path: Path):
 
 
 def main():
-    if not EXCEL_DIR.exists():
-        print(f"No excel/ directory found at {EXCEL_DIR}")
+    if not DATA_DIR.exists():
+        print(f"No data/ directory found at {DATA_DIR}")
         sys.exit(1)
 
     built = 0
-    for xlsx_path in sorted(EXCEL_DIR.rglob("*.xlsx")):
+    for xlsx_path in sorted(DATA_DIR.rglob("*.xlsx")):
         if xlsx_path.name.startswith("_") or xlsx_path.name.startswith("~$"):
-            continue  # skip templates and Excel lock files
+            continue  # skip _template.xlsx and Excel lock files
 
-        sector_folder = xlsx_path.parent.name
         try:
-            project = build_project(xlsx_path, sector_folder)
+            project = build_project(xlsx_path)
         except Exception as e:
             print(f"FAILED  {xlsx_path.relative_to(ROOT)}: {e}")
             continue
 
-        out_path = DATA_DIR / sector_folder / f"{xlsx_path.stem}.js"
+        out_path = xlsx_path.with_suffix(".js")
         write_js(project, out_path)
         print(f"OK      {xlsx_path.relative_to(ROOT)} -> {out_path.relative_to(ROOT)}")
         built += 1
