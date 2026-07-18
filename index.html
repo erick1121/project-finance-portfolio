@@ -12,7 +12,15 @@
   <header class="site-nav">
     <div class="container">
       <a href="#" class="brand">Erick Córdova <span class="brand-sub">· Project Finance</span></a>
-      <ul class="nav-links">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menú">
+        <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+          <line x1="3" y1="7" x2="21" y2="7" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="17" x2="21" y2="17" />
+        </svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+          <line x1="5" y1="5" x2="19" y2="19" /><line x1="5" y1="19" x2="19" y2="5" />
+        </svg>
+      </button>
+      <ul class="nav-links" id="nav-links">
         <li><a href="#casos">Casos de Estudio</a></li>
         <li><a href="#sobre-mi">Sobre mí</a></li>
         <li><a href="#contacto">Contacto</a></li>

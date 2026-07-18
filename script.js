@@ -6,6 +6,30 @@
 (function () {
   "use strict";
 
+  /* ---- Menú móvil (nav hamburguesa) ---- */
+
+  function initMobileNav() {
+    const toggle = document.querySelector(".nav-toggle");
+    const links = document.getElementById("nav-links");
+    if (!toggle || !links) return;
+
+    function closeMenu() {
+      links.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+    }
+
+    toggle.addEventListener("click", () => {
+      const isOpen = links.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    links.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeMenu));
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 720) closeMenu();
+    });
+  }
+
   /* ---- Filtro de casos de estudio por sector (solo en index.html) ---- */
 
   function initSectorFilter() {
@@ -103,6 +127,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", () => {
+    initMobileNav();
     initSectorFilter();
     initRevealOnScroll();
     initScrollSpy();
