@@ -3,11 +3,11 @@
  * Estética "blueprint": trazo fino, un único acento, etiquetas en mono.
  */
 
-const CHART_ACCENT = "#1f3a5f";
-const CHART_LINE = "#e4e7eb";
-const CHART_LINE_STRONG = "#c7cdd5";
-const CHART_INK_FAINT = "#8992a0";
-const CHART_NEGATIVE = "#a8483a";
+const CHART_ACCENT = "#0f2444";
+const CHART_LINE = "#e4e1da";
+const CHART_LINE_STRONG = "#c9c5ba";
+const CHART_INK_FAINT = "#7d8590";
+const CHART_NEGATIVE = "#8c2f2f";
 const CHART_FONT_MONO = "'IBM Plex Mono', ui-monospace, monospace";
 
 function svgEl(tag, attrs) {
