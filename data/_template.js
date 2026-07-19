@@ -37,6 +37,11 @@ window.CASE_STUDIES.push({
   // "example" (dato de muestra) | "draft" | "published"
   status: "example",
 
+  // Fase de la transacción para la que se construyó el modelo — se muestra
+  // como etiqueta junto al sector. Usa uno de estos 4 valores exactos:
+  // "Bid Phase" | "Financial Close" | "Operations" | "Refinancing / M&A"
+  transactionRole: "Financial Close",
+
   name: "Nombre del Proyecto",
   location: "País / región",
   size: "ej. 1,200 MW · 45 km · 40 MW IT load",
@@ -117,6 +122,32 @@ window.CASE_STUDIES.push({
     { title: "Título del insight 1", body: "Explicación breve." },
     { title: "Título del insight 2", body: "Explicación breve." },
     { title: "Título del insight 3", body: "Explicación breve." }
+  ],
+
+  // Métricas de crédito — tabla junto a "Perspectiva de los Prestamistas".
+  // Incluye siempre estas 5 si las tienes (omite las que no apliquen).
+  creditMetrics: [
+    { label: "DSCR Min.", value: "1.21×" },
+    { label: "DSCR Avg.", value: "1.34×" },
+    { label: "LLCR", value: "1.42×" },
+    { label: "PLCR", value: "1.58×" },
+    { label: "Concession Tail", value: "2 years" }
+  ],
+
+  // Cascada de flujo de caja para un año representativo (normalmente el año
+  // de mayor estrés identificado en debtProfile). "type" controla cómo se
+  // dibuja la barra:
+  //   "start"    → barra apoyada en 0 (el primer escalón, ej. CADS)
+  //   "outflow"  → resta flotante (deuda senior, DSRA, MRA/MMRA...)
+  //   "inflow"   → suma flotante (si aplica)
+  //   "end"      → barra apoyada en 0 con el resultado final (ej. Dividendo)
+  // "value" siempre en positivo — el signo lo decide "type".
+  cashFlowWaterfall: [
+    { label: "CADS", value: 100, type: "start" },
+    { label: "Senior Debt Service", value: 70, type: "outflow" },
+    { label: "DSRA Funding", value: 8, type: "outflow" },
+    { label: "MRA / MMRA", value: 7, type: "outflow" },
+    { label: "Distributable Dividend", value: 15, type: "end" }
   ],
 
   // Modelo descargable — deja modelFile: null si no hay archivo público

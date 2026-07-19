@@ -5,6 +5,7 @@ window.CASE_STUDIES.push({
   "sector": "digital",
   "sectorLabel": "Digital Infrastructure",
   "status": "example",
+  "transactionRole": "Bid Phase",
   "name": "Nexus Data Center Campus",
   "location": "Southern Europe digital hub, illustrative example",
   "size": "48 MW IT load · 3-building campus",
@@ -195,6 +196,55 @@ window.CASE_STUDIES.push({
     {
       "title": "Recommendation: refinancing covenant or cash sweep at year 13",
       "body": "An additional cash sweep mechanism two years ahead of the lease expiry would further reduce refinancing risk in the non-renewal scenario."
+    }
+  ],
+  "creditMetrics": [
+    {
+      "label": "DSCR Min.",
+      "value": "1.09×"
+    },
+    {
+      "label": "DSCR Avg.",
+      "value": "1.27×"
+    },
+    {
+      "label": "LLCR",
+      "value": "1.31×"
+    },
+    {
+      "label": "PLCR",
+      "value": "1.45×"
+    },
+    {
+      "label": "Concession Tail",
+      "value": "N/A — lease structure"
+    }
+  ],
+  "cashFlowWaterfall": [
+    {
+      "label": "CADS",
+      "value": 54,
+      "type": "start"
+    },
+    {
+      "label": "Senior Debt Service",
+      "value": 41,
+      "type": "outflow"
+    },
+    {
+      "label": "DSRA Funding",
+      "value": 5,
+      "type": "outflow"
+    },
+    {
+      "label": "MRA / MMRA",
+      "value": 3,
+      "type": "outflow"
+    },
+    {
+      "label": "Distributable Dividend",
+      "value": 5,
+      "type": "end"
     }
   ],
   "modelFile": {

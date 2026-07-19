@@ -5,6 +5,7 @@ window.CASE_STUDIES.push({
   "sector": "renewable",
   "sectorLabel": "Renewable Energy",
   "status": "example",
+  "transactionRole": "Financial Close",
   "name": "Aurora Offshore Wind",
   "location": "North Sea, off the coast of Cantabria (illustrative example)",
   "size": "1,200 MW · 80 turbines × 15 MW",
@@ -199,6 +200,55 @@ window.CASE_STUDIES.push({
     {
       "title": "Peak stress point in year 9",
       "body": "DSCR hits its relative minimum from overlapping major maintenance and low seasonal generation, recovering normally afterward."
+    }
+  ],
+  "creditMetrics": [
+    {
+      "label": "DSCR Min.",
+      "value": "1.21×"
+    },
+    {
+      "label": "DSCR Avg.",
+      "value": "1.20×"
+    },
+    {
+      "label": "LLCR",
+      "value": "1.38×"
+    },
+    {
+      "label": "PLCR",
+      "value": "1.52×"
+    },
+    {
+      "label": "Concession Tail",
+      "value": "3 years"
+    }
+  ],
+  "cashFlowWaterfall": [
+    {
+      "label": "CADS",
+      "value": 142,
+      "type": "start"
+    },
+    {
+      "label": "Senior Debt Service",
+      "value": 108,
+      "type": "outflow"
+    },
+    {
+      "label": "DSRA Funding",
+      "value": 12,
+      "type": "outflow"
+    },
+    {
+      "label": "MRA / MMRA",
+      "value": 8,
+      "type": "outflow"
+    },
+    {
+      "label": "Distributable Dividend",
+      "value": 14,
+      "type": "end"
     }
   ],
   "modelFile": {

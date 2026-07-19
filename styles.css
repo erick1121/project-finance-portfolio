@@ -358,6 +358,7 @@ section { position: relative; }
 
 .hero-ctas {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--space-4);
   margin-top: var(--space-8);
 }
@@ -470,9 +471,16 @@ section { position: relative; }
   margin-bottom: var(--space-6);
 }
 
+.case-tags {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
 .case-card .sector-tag {
   display: inline-flex;
-  align-self: flex-start;
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   letter-spacing: 0.06em;
@@ -481,8 +489,29 @@ section { position: relative; }
   background: none;
   padding: 0;
   border-radius: 0;
-  margin-bottom: var(--space-4);
 }
+
+.role-badge {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.role-badge::before {
+  content: "· ";
+  color: var(--ink-secondary);
+}
+
+.case-hero-tags {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.case-hero-tags .role-badge::before { color: rgba(241, 245, 249, 0.4); }
 
 .case-card h3 { margin-bottom: var(--space-1); }
 
@@ -598,6 +627,18 @@ section { position: relative; }
 
 .social-proof-marks span:hover { opacity: 1; }
 
+/* ---- Methodology banner ---- */
+
+.methodology-banner {
+  margin-top: var(--space-12);
+  padding: var(--space-6) var(--space-8);
+  border-left: 2px solid var(--accent);
+  background: var(--bg-subtle);
+}
+
+.methodology-banner .eyebrow { margin-bottom: var(--space-2); }
+.methodology-banner p { color: var(--ink); font-size: var(--text-sm); max-width: none; }
+
 /* ---- Contact ---- */
 
 .contact {
@@ -676,6 +717,30 @@ section { position: relative; }
   font-family: var(--font-display);
   font-weight: 700;
   font-size: var(--text-xl);
+  color: var(--accent);
+}
+
+/* ---- Credit metrics (Lenders' Perspective) ---- */
+
+.credit-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--line);
+}
+
+.credit-metrics .metric-label {
+  font-size: var(--text-xs);
+  color: var(--ink-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: var(--space-1);
+}
+
+.credit-metrics .credit-metric-value {
+  font-size: var(--text-md);
   color: var(--accent);
 }
 

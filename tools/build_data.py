@@ -80,6 +80,7 @@ def build_project(xlsx_path: Path):
         "sector": as_str(info.get("sector")),
         "sectorLabel": as_str(info.get("sectorLabel")),
         "status": as_str(info.get("status")) or "example",
+        "transactionRole": as_str(info.get("transactionRole")),
         "name": as_str(info.get("name")),
         "location": as_str(info.get("location")),
         "size": as_str(info.get("size")),
@@ -133,6 +134,19 @@ def build_project(xlsx_path: Path):
 
     project["insightsPE"] = read_pairs(wb, "InsightsPE", "title", "body")
     project["insightsLenders"] = read_pairs(wb, "InsightsLenders", "title", "body")
+    project["creditMetrics"] = read_pairs(wb, "CreditMetrics", "label", "value")
+
+    if "CashFlowWaterfall" in wb.sheetnames:
+        waterfall = []
+        for row in sheet_rows(wb["CashFlowWaterfall"]):
+            waterfall.append({
+                "label": as_str(row[0]),
+                "value": as_num(row[1]),
+                "type": as_str(row[2]).lower(),
+            })
+        project["cashFlowWaterfall"] = waterfall or None
+    else:
+        project["cashFlowWaterfall"] = None
 
     model_name = as_str(info.get("modelFileName"))
     if model_name:

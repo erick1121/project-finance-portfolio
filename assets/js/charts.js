@@ -180,3 +180,61 @@ function renderDscrLineChart(container, { points, covenantMin }) {
   container.innerHTML = "";
   container.appendChild(svg);
 }
+
+/**
+ * Gráfico waterfall — cascada de cash flow para un año representativo:
+ * CADS → deuda senior → cuentas de reserva (DSRA/MRA) → dividendo.
+ * "start"/"end" son barras apoyadas en 0; "outflow"/"inflow" flotan sobre
+ * el total acumulado.
+ */
+function renderWaterfallChart(container, steps) {
+  const width = 560;
+  const barW = Math.min(90, (width - 40) / steps.length - 16);
+  const colGap = (width - 40 - barW * steps.length) / Math.max(steps.length - 1, 1);
+  const chartTop = 20;
+  const chartBottom = 190;
+  const height = 224;
+
+  let running = 0;
+  const bars = steps.map((s) => {
+    let from, to;
+    if (s.type === "start") { from = 0; to = s.value; running = s.value; }
+    else if (s.type === "end") { from = 0; to = running; }
+    else if (s.type === "inflow") { from = running; to = running + s.value; running += s.value; }
+    else { from = running - s.value; to = running; running -= s.value; }
+    return { ...s, from, to };
+  });
+
+  const maxVal = Math.max(...bars.map((b) => Math.max(b.from, b.to)), 1);
+  const yScale = (v) => chartBottom - (v / maxVal) * (chartBottom - chartTop);
+
+  const svg = svgEl("svg", { viewBox: `0 0 ${width} ${height}`, width: "100%", height: "auto", role: "img" });
+  svg.setAttribute("aria-label", "Cash flow waterfall chart");
+
+  svg.appendChild(svgEl("line", { x1: 20, y1: chartBottom, x2: width - 20, y2: chartBottom, stroke: CHART_LINE_STRONG, "stroke-width": 1 }));
+
+  bars.forEach((b, i) => {
+    const x = 20 + i * (barW + colGap);
+    const yTop = yScale(Math.max(b.from, b.to));
+    const yBottom = yScale(Math.min(b.from, b.to));
+    const barH = Math.max(yBottom - yTop, 1.5);
+    const color = b.type === "outflow" ? CHART_NEGATIVE : CHART_ACCENT;
+
+    // conector punteado con el escalón anterior
+    if (i > 0) {
+      const prevX = 20 + (i - 1) * (barW + colGap) + barW;
+      const connectY = yScale(bars[i - 1].to);
+      svg.appendChild(svgEl("line", {
+        x1: prevX, y1: connectY, x2: x, y2: connectY,
+        stroke: CHART_LINE_STRONG, "stroke-width": 1, "stroke-dasharray": "2 3"
+      }));
+    }
+
+    svg.appendChild(svgEl("rect", { x, y: yTop, width: barW, height: barH, fill: color, opacity: 0.85 }));
+    svg.appendChild(svgText(x + barW / 2, yTop - 6, String(b.value), { anchor: "middle", size: 10, fill: "#1e293b" }));
+    svg.appendChild(svgText(x + barW / 2, chartBottom + 16, b.label, { anchor: "middle", size: 8.5 }));
+  });
+
+  container.innerHTML = "";
+  container.appendChild(svg);
+}

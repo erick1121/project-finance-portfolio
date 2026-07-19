@@ -5,6 +5,7 @@ window.CASE_STUDIES.push({
   "sector": "core",
   "sectorLabel": "Core Infrastructure",
   "status": "example",
+  "transactionRole": "Operations",
   "name": "Meridian Toll Road",
   "location": "Northern Corridor, illustrative example",
   "size": "62 km · 2×2-lane toll road",
@@ -199,6 +200,55 @@ window.CASE_STUDIES.push({
     {
       "title": "Traffic guarantee design reduces ramp-up risk",
       "body": "The first 10 years — structurally the period of highest demand uncertainty — are protected by the minimum traffic mechanism, shifting residual risk to a period where the asset already has a track record."
+    }
+  ],
+  "creditMetrics": [
+    {
+      "label": "DSCR Min.",
+      "value": "1.14×"
+    },
+    {
+      "label": "DSCR Avg.",
+      "value": "1.23×"
+    },
+    {
+      "label": "LLCR",
+      "value": "1.35×"
+    },
+    {
+      "label": "PLCR",
+      "value": "1.48×"
+    },
+    {
+      "label": "Concession Tail",
+      "value": "3 years"
+    }
+  ],
+  "cashFlowWaterfall": [
+    {
+      "label": "CADS",
+      "value": 68,
+      "type": "start"
+    },
+    {
+      "label": "Senior Debt Service",
+      "value": 52,
+      "type": "outflow"
+    },
+    {
+      "label": "DSRA Funding",
+      "value": 5,
+      "type": "outflow"
+    },
+    {
+      "label": "MRA / MMRA",
+      "value": 4,
+      "type": "outflow"
+    },
+    {
+      "label": "Distributable Dividend",
+      "value": 7,
+      "type": "end"
     }
   ],
   "modelFile": {

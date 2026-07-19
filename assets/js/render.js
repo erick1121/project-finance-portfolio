@@ -53,11 +53,18 @@ function renderProjectCard(project) {
     )
     .join("");
 
+  const roleTag = project.transactionRole
+    ? `<span class="role-badge">${project.transactionRole}</span>`
+    : "";
+
   return `
     <article class="case-card" data-sector="${project.sector}">
       ${sectorIconSVG(project.sector)}
-      <span class="sector-tag">${project.sectorLabel}</span>
-      ${statusBadge}
+      <div class="case-tags">
+        <span class="sector-tag">${project.sectorLabel}</span>
+        ${roleTag}
+        ${statusBadge}
+      </div>
       <h3>${project.name}</h3>
       <div class="case-meta">${project.location} · ${project.size}</div>
       <div class="case-metrics">${metrics}</div>
@@ -103,9 +110,16 @@ function getProjectFromURL() {
 function renderCaseHero(project) {
   document.title = `${project.name} · Case Study · Erick Córdova`;
 
+  const roleTag = project.transactionRole
+    ? `<span class="role-badge">${project.transactionRole}</span>`
+    : "";
+
   document.getElementById("case-hero").innerHTML = `
     <div class="container">
-      <span class="eyebrow">${project.sectorLabel}</span>
+      <div class="case-hero-tags">
+        <span class="eyebrow">${project.sectorLabel}</span>
+        ${roleTag}
+      </div>
       <h1>${project.name}</h1>
       <div class="case-hero-metrics">
         ${project.metrics
@@ -174,7 +188,29 @@ function renderInsightColumn(title, insights) {
     </div>`;
 }
 
+function renderCreditMetrics(project) {
+  if (!project.creditMetrics || project.creditMetrics.length === 0) return "";
+  const items = project.creditMetrics
+    .map(
+      (m) => `
+      <div>
+        <div class="metric-label">${m.label}</div>
+        <div class="metric-value credit-metric-value">${m.value}</div>
+      </div>`
+    )
+    .join("");
+  return `
+    <h3 class="subhead" style="margin-top: var(--space-8);">Credit Metrics</h3>
+    <div class="credit-metrics">${items}</div>`;
+}
+
 function renderTakeaways(project) {
+  const waterfallSection = project.cashFlowWaterfall
+    ? `
+      <h3 class="subhead" style="margin-top: var(--space-8);">Cash Flow Waterfall — Representative Year</h3>
+      <div id="chart-waterfall"></div>`
+    : "";
+
   return `
     <section class="case-section" id="s-takeaways">
       <div class="section-number">03 — Key Takeaways</div>
@@ -185,10 +221,14 @@ function renderTakeaways(project) {
 
       <h3 class="subhead" style="margin-top: var(--space-8);">DSCR Profile Across the Debt Tenor</h3>
       <div id="chart-dscr"></div>
+      ${waterfallSection}
 
       <div class="insight-columns">
         ${renderInsightColumn("Private Equity Perspective", project.insightsPE)}
-        ${renderInsightColumn("Lenders' Perspective", project.insightsLenders)}
+        <div>
+          ${renderInsightColumn("Lenders' Perspective", project.insightsLenders)}
+          ${renderCreditMetrics(project)}
+        </div>
       </div>
     </section>`;
 }
@@ -298,6 +338,9 @@ function renderCaseStudy() {
   renderBarChart(document.getElementById("chart-scenario"), { rows: project.scenarioTable.rows });
   renderTornadoChart(document.getElementById("chart-tornado"), project.sensitivities);
   renderDscrLineChart(document.getElementById("chart-dscr"), project.debtProfile);
+  if (project.cashFlowWaterfall) {
+    renderWaterfallChart(document.getElementById("chart-waterfall"), project.cashFlowWaterfall);
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {

@@ -29,8 +29,11 @@ tools/
   build_data.py                → convierte cada data/<sector>/*.xlsx en su .js hermano (mismo nombre, misma carpeta)
 
 assets/js/
-  charts.js                   → gráficos SVG (barras, tornado, línea de DSCR) — sin librerías externas
+  charts.js                   → gráficos SVG (barras, tornado, línea DSCR, waterfall) — sin librerías externas
   render.js                   → construye index.html y case-study.html a partir de los ficheros de data/
+
+resume/
+  Erick_Cordova_CV.pdf         → sube aquí tu CV (ver resume/README.md) — el botón del hero ya apunta ahí
 ```
 
 ## Cómo funciona
@@ -53,7 +56,20 @@ edición manual se sobrescribirá con lo que haya en el Excel.
 En vez de tocar JSON/JS a mano, puedes mantener cada caso de estudio en un
 Excel con una pestaña por tipo de dato (Info, Metrics, Facts, ExecutiveSummary,
 ScenarioTable, Callouts, Sensitivities, DebtProfile, InsightsPE,
-InsightsLenders, Assumptions, Sources) y regenerar el `.js` con un comando.
+InsightsLenders, CreditMetrics, CashFlowWaterfall, Assumptions, Sources) y
+regenerar el `.js` con un comando.
+
+Dos pestañas merecen explicación:
+- **CreditMetrics** (Label, Value): DSCR Min./Avg., LLCR, PLCR, Concession
+  Tail — se muestran junto a "Lenders' Perspective".
+- **CashFlowWaterfall** (Label, Value, Type): la cascada CADS → deuda senior
+  → reservas (DSRA/MRA) → dividendo para un año representativo. `Value`
+  siempre en positivo; `Type` es `start` (primer escalón, ej. CADS),
+  `outflow` (resta, ej. deuda o reservas), `inflow` (suma, si aplica) o `end`
+  (último escalón, ej. Dividendo).
+- En la pestaña **Info** también puedes rellenar `transactionRole` con uno
+  de: `Bid Phase`, `Financial Close`, `Operations`, `Refinancing / M&A` —
+  aparece como etiqueta junto al sector.
 
 **Configuración única** (una sola vez en tu Mac):
 ```
