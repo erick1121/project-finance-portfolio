@@ -590,42 +590,64 @@ section { position: relative; }
 .fact-list .fact-label { color: var(--ink-secondary); }
 .fact-list .fact-value { color: var(--ink); text-align: right; }
 
-/* ---- Social proof band (institutional authority) ---- */
+/* ---- Credentials band (Work Experience / Education, grouped) ---- */
 
-.social-proof {
+.credentials-band {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-16) var(--space-24);
   margin-top: var(--space-16);
   padding-top: var(--space-8);
   border-top: 1px solid var(--line);
 }
 
-.social-proof-label {
+.credentials-label {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink-secondary);
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-4);
 }
 
-.social-proof-marks {
+.credentials-marks {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
-  gap: var(--space-8) var(--space-16);
+  gap: var(--space-6) var(--space-8);
 }
 
-.social-proof-marks span {
-  font-family: var(--font-display);
-  font-size: var(--text-md);
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  color: var(--ink-secondary);
-  filter: grayscale(1);
-  opacity: 0.8;
+.institution-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  opacity: 0.85;
   transition: opacity var(--duration-base) var(--ease-out);
 }
 
-.social-proof-marks span:hover { opacity: 1; }
+.institution-mark:hover { opacity: 1; }
+
+.institution-mark span:last-child {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--ink-secondary);
+}
+
+.institution-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border: 1px solid var(--line-strong);
+  background: var(--bg-dark);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
 
 /* ---- Methodology banner ---- */
 
