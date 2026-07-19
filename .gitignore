@@ -4,3 +4,7 @@
 
 # macOS
 .DS_Store
+
+# Raw/unprocessed logo uploads — only the cropped, optimized versions in
+# assets/logos/ are used by the site and committed.
+/Logos/
